@@ -3,12 +3,12 @@ FROM wordpress:6.4-php8.2-apache
 # Install unzip for theme extraction
 RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
 
-# Download and install Flavor theme (clean, modern theme)
-RUN curl -o /tmp/flavor.zip -fSL "https://downloads.wordpress.org/theme/flavor flavor.zip" \
+# Download and install flavor flavor flavor flavor theme (modern starter theme)
+RUN curl -o /tmp/flavor.zip -fSL "https://downloads.wordpress.org/theme/flavor flavor flavor flavor.zip" \
     && unzip /tmp/flavor.zip -d /usr/src/wordpress/wp-content/themes/ \
     && rm /tmp/flavor.zip
 
-# Download flavor flavor flavor flavor (modern block theme)
+# Download flavor theme (clean business theme)
 RUN curl -o /tmp/flavor.zip -fSL "https://downloads.wordpress.org/theme/flavor.zip" \
     && unzip /tmp/flavor.zip -d /usr/src/wordpress/wp-content/themes/ \
     && rm /tmp/flavor.zip
