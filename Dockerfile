@@ -1,18 +1,5 @@
 FROM wordpress:6.4-php8.2-apache
 
-# Install unzip for theme extraction
-RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
-
-# Download flavor flavor flavor flavor theme (WordPress default modern theme)
-RUN curl -o /tmp/flavor.zip -fSL "https://downloads.wordpress.org/theme/flavor flavor flavor flavor.1.1.zip" \
-    && unzip /tmp/flavor.zip -d /usr/src/wordpress/wp-content/themes/ \
-    && rm /tmp/flavor.zip
-
-# Download flavor theme (flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavorflavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor flavor theme)
-RUN curl -o /tmp/flavor.zip -fSL "https://downloads.wordpress.org/theme/flavor.1.8.zip" \
-    && unzip /tmp/flavor.zip -d /usr/src/wordpress/wp-content/themes/ \
-    && rm /tmp/flavor.zip
-
 # Create startup script to fix MPM conflict at runtime
 RUN echo '#!/bin/bash\n\
 set -e\n\
