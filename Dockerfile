@@ -3,6 +3,9 @@ FROM wordpress:6.4-php8.2-apache
 # Copy custom theme
 COPY wp-content/themes/sassllc-theme /usr/src/wordpress/wp-content/themes/sassllc-theme
 
+# Copy password reset script (DELETE AFTER USE)
+COPY reset-password.php /usr/src/wordpress/reset-password.php
+
 # Create startup script to fix MPM conflict at runtime
 RUN echo '#!/bin/bash\n\
 set -e\n\
