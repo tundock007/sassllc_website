@@ -110,9 +110,9 @@ get_header();
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     background: white;
     padding: 3rem;
@@ -303,16 +303,12 @@ get_header();
                 <div class="stat-label">Years Experience</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Happy Clients</div>
+                <div class="stat-number">EA</div>
+                <div class="stat-label">IRS Enrolled Agent</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">99%</div>
-                <div class="stat-label">Success Rate</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Support</div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Focused</div>
             </div>
         </div>
     </div>
@@ -428,7 +424,7 @@ get_header();
             </div>
             <div class="credential-item">
                 <div class="icon">📜</div>
-                <span>IRS Enrolled Agents</span>
+                <span>IRS Enrolled Agent</span>
             </div>
             <div class="credential-item">
                 <div class="icon">💻</div>
@@ -437,10 +433,6 @@ get_header();
             <div class="credential-item">
                 <div class="icon">⭐</div>
                 <span>15+ Years Experience</span>
-            </div>
-            <div class="credential-item">
-                <div class="icon">👥</div>
-                <span>500+ Satisfied Clients</span>
             </div>
         </div>
     </div>
