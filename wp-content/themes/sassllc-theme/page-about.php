@@ -14,22 +14,49 @@ get_header();
     </div>
 </section>
 
-<!-- Our Story -->
+<!-- Meet the Founder -->
 <section style="padding: 5rem 0;">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center;">
+                <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #E0F2FE, #BAE6FD); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 5rem;">
+                    👤
+                </div>
+                <h3 style="margin-bottom: 0.5rem; color: #0F172A;">Founder & Enrolled Agent</h3>
+                <p style="color: #0EA5E9; font-weight: 600; margin: 0;">IRS Enrolled Agent (EA)</p>
+            </div>
+            <div>
+                <h2 style="margin-bottom: 1.5rem;">Meet Our Founder</h2>
+                <p style="font-size: 1.125rem; line-height: 1.8;">
+                    Simplified Accounting Solutions, LLC was founded by an IRS Enrolled Agent with years of hands-on experience in accounting and tax resolution. Our founder has dedicated their career to helping individuals and businesses navigate complex tax situations and resolve issues with the IRS.
+                </p>
+                <p style="font-size: 1.125rem; line-height: 1.8;">
+                    As an Enrolled Agent—the highest credential awarded by the IRS—our founder holds unlimited practice rights to represent taxpayers before the IRS. This means we can handle audits, collections, appeals, and all other matters on your behalf.
+                </p>
+                <p style="font-size: 1.125rem; line-height: 1.8;">
+                    With extensive experience working directly with the IRS, our founder understands exactly how the agency operates and what it takes to achieve favorable outcomes for clients. This insider knowledge, combined with a genuine passion for helping people resolve their tax problems, is the foundation of everything we do.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section style="padding: 5rem 0; background: #F8FAFC;">
     <div class="container">
         <div style="max-width: 800px; margin: 0 auto;">
             <h2>Our Story</h2>
             <p style="font-size: 1.125rem; line-height: 1.8;">
-                Simplified Accounting Solutions, LLC was founded with a simple mission: to make professional accounting services accessible, understandable, and stress-free for individuals and businesses alike.
+                Simplified Accounting Solutions, LLC was founded with a simple mission: to make professional accounting and tax resolution services accessible, understandable, and stress-free for individuals and businesses alike.
             </p>
             <p style="font-size: 1.125rem; line-height: 1.8;">
-                We understand that dealing with finances can be overwhelming. Tax codes change constantly, IRS regulations seem deliberately confusing, and managing your books can feel like a full-time job. That's where we come in.
+                We understand that dealing with the IRS can be intimidating and overwhelming. Tax codes change constantly, IRS regulations seem deliberately confusing, and facing a tax problem alone can feel impossible. That's where we come in.
             </p>
             <p style="font-size: 1.125rem; line-height: 1.8;">
-                Our team of experienced accounting professionals takes the burden off your shoulders. We translate complex financial matters into plain language, handle the paperwork, and ensure you stay compliant while maximizing your financial potential.
+                With our Enrolled Agent expertise, we take the burden off your shoulders. We communicate directly with the IRS on your behalf, translate complex tax matters into plain language, and work tirelessly to resolve your tax issues while protecting your rights.
             </p>
             <p style="font-size: 1.125rem; line-height: 1.8;">
-                Whether you're an individual trying to navigate tax season, a small business owner focused on growth, or someone facing an IRS audit, we're here to be your trusted financial partner.
+                Whether you're an individual dealing with back taxes, a small business owner facing an audit, or someone who needs help with IRS collections—we're here to be your voice at the IRS.
             </p>
         </div>
     </div>
