@@ -118,7 +118,7 @@ get_header();
         </div>
         
         <div style="text-align: center; margin-top: 3rem;">
-            <a href="<?php echo home_url('/services'); ?>" class="btn btn-purple">View All Services →</a>
+            <a href="<?php echo home_url('/services'); ?>" class="btn btn-accent">View All Services →</a>
         </div>
     </div>
 </section>
