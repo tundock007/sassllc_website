@@ -6,6 +6,149 @@
 get_header();
 ?>
 
+<style>
+/* Services Page Mobile Styles */
+.service-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.service-split-reverse {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.service-split-reverse > div:first-child {
+    order: 1;
+}
+
+.service-split-reverse > div:last-child {
+    order: 2;
+}
+
+.service-box {
+    background: var(--background-alt);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.service-box-dark {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 2rem;
+    border-radius: 16px;
+    color: white;
+}
+
+.service-box-dark h3,
+.service-box-dark h4 {
+    color: white;
+}
+
+.tax-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.tax-credits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.full-service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.full-service-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.full-service-item .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.checklist {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.checklist li {
+    padding: 0.5rem 0;
+    padding-left: 1.75rem;
+    position: relative;
+}
+
+.checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.checklist-white li::before {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .service-split,
+    .service-split-reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .service-split-reverse > div:first-child {
+        order: 2;
+    }
+    
+    .service-split-reverse > div:last-child {
+        order: 1;
+    }
+    
+    .tax-two-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .tax-credits-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .full-service-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .service-box,
+    .service-box-dark {
+        padding: 1.5rem;
+    }
+    
+    .full-service-item {
+        padding: 1rem;
+    }
+    
+    .full-service-item h4 {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .full-service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
 <!-- Hero Section -->
 <section class="hero" style="padding: 4rem 0;">
     <div class="container">
@@ -15,38 +158,23 @@ get_header();
 </section>
 
 <!-- Bookkeeping Services -->
-<section id="bookkeeping" style="padding: 5rem 0;">
+<section id="bookkeeping" style="padding: 4rem 0;">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <div class="service-split">
             <div>
                 <h2>📚 Bookkeeping Services</h2>
                 <h3 style="color: var(--primary-color); font-weight: 500;">Keep Your Books in Order</h3>
                 <p>Accurate bookkeeping is the foundation of every successful business. Our professional bookkeeping services ensure your financial records are always up-to-date, organized, and ready for tax season.</p>
                 
-                <ul style="list-style: none; margin-top: 2rem;">
-                    <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color);">✓</span>
-                        <strong>Accounts Payable Management</strong> – Track and manage vendor payments
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color);">✓</span>
-                        <strong>Accounts Receivable Management</strong> – Invoice processing and payment tracking
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color);">✓</span>
-                        <strong>Bank Reconciliation</strong> – Monthly reconciliation for accuracy
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color);">✓</span>
-                        <strong>Financial Statement Preparation</strong> – P&L and balance sheets
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: var(--primary-color);">✓</span>
-                        <strong>Payroll Processing</strong> – Employee payroll and tax filings
-                    </li>
+                <ul class="checklist">
+                    <li><strong>Accounts Payable Management</strong> – Track and manage vendor payments</li>
+                    <li><strong>Accounts Receivable Management</strong> – Invoice processing and payment tracking</li>
+                    <li><strong>Bank Reconciliation</strong> – Monthly reconciliation for accuracy</li>
+                    <li><strong>Financial Statement Preparation</strong> – P&L and balance sheets</li>
+                    <li><strong>Payroll Processing</strong> – Employee payroll and tax filings</li>
                 </ul>
             </div>
-            <div style="background: var(--background-alt); padding: 3rem; border-radius: 16px;">
+            <div class="service-box">
                 <h4>Industries We Serve:</h4>
                 <ul style="list-style: none; margin-top: 1rem;">
                     <li style="padding: 0.5rem 0;">• Professional Services</li>
@@ -57,7 +185,7 @@ get_header();
                     <li style="padding: 0.5rem 0;">• Nonprofits</li>
                     <li style="padding: 0.5rem 0;">• Startups & Entrepreneurs</li>
                 </ul>
-                <h4 style="margin-top: 2rem;">Software We Support:</h4>
+                <h4 style="margin-top: 1.5rem;">Software We Support:</h4>
                 <p style="margin-top: 0.5rem;">QuickBooks, Xero, FreshBooks, Wave, Sage</p>
             </div>
         </div>
@@ -65,7 +193,7 @@ get_header();
 </section>
 
 <!-- Tax Preparation -->
-<section id="tax-prep" style="padding: 5rem 0; background: var(--background-alt);">
+<section id="tax-prep" style="padding: 4rem 0; background: var(--background-alt);">
     <div class="container">
         <div class="section-header">
             <h2>📋 Tax Preparation & Filing</h2>
@@ -73,7 +201,7 @@ get_header();
             <p>Whether you're an individual, sole proprietor, or business owner, our tax preparation services ensure accuracy and maximize your tax savings.</p>
         </div>
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;">
+        <div class="tax-two-col" style="margin-top: 2.5rem;">
             <div class="service-card">
                 <h4>Individual Tax Services</h4>
                 <ul>
@@ -101,9 +229,9 @@ get_header();
             </div>
         </div>
         
-        <div style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 12px;">
+        <div style="margin-top: 2.5rem; background: white; padding: 1.5rem; border-radius: 12px;">
             <h4>Tax Credits We Help You Claim:</h4>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+            <div class="tax-credits-grid" style="margin-top: 1rem;">
                 <span>✓ Earned Income Tax Credit (EITC)</span>
                 <span>✓ Child Tax Credit</span>
                 <span>✓ Education Credits</span>
@@ -116,17 +244,17 @@ get_header();
 </section>
 
 <!-- Tax Planning -->
-<section id="tax-planning" style="padding: 5rem 0;">
+<section id="tax-planning" style="padding: 4rem 0;">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-            <div style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 3rem; border-radius: 16px; color: white;">
-                <h3 style="color: white;">Who Benefits Most:</h3>
-                <ul style="list-style: none; margin-top: 1.5rem;">
-                    <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Business owners & self-employed professionals</li>
-                    <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ High-income earners</li>
-                    <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Real estate investors</li>
-                    <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Those approaching retirement</li>
-                    <li style="padding: 0.75rem 0;">✓ Anyone with complex financial situations</li>
+        <div class="service-split-reverse">
+            <div class="service-box-dark">
+                <h3>Who Benefits Most:</h3>
+                <ul class="checklist checklist-white" style="margin-top: 1rem;">
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.75rem;">Business owners & self-employed professionals</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.75rem;">High-income earners</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.75rem;">Real estate investors</li>
+                    <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.75rem;">Those approaching retirement</li>
+                    <li>Anyone with complex financial situations</li>
                 </ul>
             </div>
             <div>
@@ -134,12 +262,12 @@ get_header();
                 <h3 style="color: var(--primary-color); font-weight: 500;">Plan Today. Save Tomorrow.</h3>
                 <p>Effective tax planning goes beyond filing your annual return. Our proactive approach helps you make strategic financial decisions throughout the year.</p>
                 
-                <ul style="list-style: none; margin-top: 2rem;">
-                    <li style="padding: 0.75rem 0;"><strong>Year-Round Tax Projections</strong> – Estimate liability and adjust withholdings</li>
-                    <li style="padding: 0.75rem 0;"><strong>Entity Structure Optimization</strong> – LLC, S-Corp, or C-Corp analysis</li>
-                    <li style="padding: 0.75rem 0;"><strong>Retirement Planning Strategies</strong> – Maximize tax-advantaged accounts</li>
-                    <li style="padding: 0.75rem 0;"><strong>Income Timing Strategies</strong> – Defer income or accelerate deductions</li>
-                    <li style="padding: 0.75rem 0;"><strong>Capital Gains Planning</strong> – Strategic timing of asset sales</li>
+                <ul class="checklist">
+                    <li><strong>Year-Round Tax Projections</strong> – Estimate liability and adjust withholdings</li>
+                    <li><strong>Entity Structure Optimization</strong> – LLC, S-Corp, or C-Corp analysis</li>
+                    <li><strong>Retirement Planning Strategies</strong> – Maximize tax-advantaged accounts</li>
+                    <li><strong>Income Timing Strategies</strong> – Defer income or accelerate deductions</li>
+                    <li><strong>Capital Gains Planning</strong> – Strategic timing of asset sales</li>
                 </ul>
             </div>
         </div>
@@ -198,7 +326,7 @@ get_header();
 </section>
 
 <!-- Full Service Accounting -->
-<section style="padding: 5rem 0;">
+<section style="padding: 4rem 0;">
     <div class="container">
         <div class="section-header">
             <h2>💼 Full-Service Accounting</h2>
@@ -206,29 +334,29 @@ get_header();
             <p>For businesses that need comprehensive financial oversight, our full-service accounting solutions provide everything from daily transaction recording to CFO-level strategic guidance.</p>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
-            <div style="text-align: center; padding: 1.5rem;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+        <div class="full-service-grid" style="margin-top: 2.5rem;">
+            <div class="full-service-item">
+                <div class="icon">📊</div>
                 <h4>All Bookkeeping Services</h4>
             </div>
-            <div style="text-align: center; padding: 1.5rem;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">📈</div>
+            <div class="full-service-item">
+                <div class="icon">📈</div>
                 <h4>Monthly Financial Reporting</h4>
             </div>
-            <div style="text-align: center; padding: 1.5rem;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">💰</div>
+            <div class="full-service-item">
+                <div class="icon">💰</div>
                 <h4>Cash Flow Analysis</h4>
             </div>
-            <div style="text-align: center; padding: 1.5rem;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">📋</div>
+            <div class="full-service-item">
+                <div class="icon">📋</div>
                 <h4>Budget & Variance Analysis</h4>
             </div>
-            <div style="text-align: center; padding: 1.5rem;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">💳</div>
+            <div class="full-service-item">
+                <div class="icon">💳</div>
                 <h4>Payroll Services</h4>
             </div>
-            <div style="text-align: center; padding: 1.5rem;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">👔</div>
+            <div class="full-service-item">
+                <div class="icon">👔</div>
                 <h4>CFO Advisory Services</h4>
             </div>
         </div>
