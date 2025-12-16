@@ -266,10 +266,109 @@ get_header();
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero-modern h1 { font-size: 2.5rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat-number { font-size: 2rem; }
-    .cta-modern h2 { font-size: 2rem; }
+    .hero-modern {
+        padding: 6rem 0 5rem;
+    }
+    
+    .hero-modern h1 { 
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-modern p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .stats-section {
+        margin-top: -50px;
+        padding: 3rem 0;
+    }
+    
+    .stats-grid { 
+        grid-template-columns: repeat(3, 1fr);
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+    }
+    
+    .stat-number { 
+        font-size: 1.5rem; 
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .features-modern {
+        padding: 4rem 0;
+    }
+    
+    .feature-card-modern {
+        padding: 2rem;
+    }
+    
+    .feature-icon-modern {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+    }
+    
+    .services-modern {
+        padding: 4rem 0;
+    }
+    
+    .service-card-modern {
+        padding: 2rem;
+    }
+    
+    .service-card-modern h3 {
+        font-size: 1.15rem;
+    }
+    
+    .cta-modern {
+        padding: 4rem 0;
+    }
+    
+    .cta-modern h2 { 
+        font-size: 1.75rem; 
+    }
+    
+    .cta-modern p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .cta-modern .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-modern h1 {
+        font-size: 1.75rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        text-align: left;
+    }
 }
 </style>
 

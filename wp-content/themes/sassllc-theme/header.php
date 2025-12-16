@@ -14,6 +14,12 @@
             <span>SIMPLIFIED</span> ACCOUNTING SOLUTIONS, LLC
         </a>
         
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
         <nav class="main-nav">
             <ul>
                 <li><a href="<?php echo home_url(); ?>" <?php if(is_front_page()) echo 'class="active"'; ?>>Home</a></li>
@@ -30,5 +36,26 @@
         </div>
     </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    const header = document.querySelector('.site-header');
+    
+    toggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        toggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+        });
+    });
+});
+</script>
 
 <main class="site-main">

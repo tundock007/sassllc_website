@@ -17,9 +17,9 @@ get_header();
 <!-- Meet the Founder -->
 <section style="padding: 5rem 0;">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 0 auto;">
+        <div class="founder-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 0 auto;">
             <div style="text-align: center;">
-                <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #E0F2FE, #BAE6FD); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 5rem;">
+                <div style="width: 180px; height: 180px; background: linear-gradient(135deg, #E0F2FE, #BAE6FD); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 4rem;">
                     👤
                 </div>
                 <h3 style="margin-bottom: 0.5rem; color: #0F172A;">Founder & Enrolled Agent</h3>
