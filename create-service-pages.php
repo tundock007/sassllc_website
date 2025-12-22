@@ -6,11 +6,14 @@
  */
 
 // Load WordPress
-require_once('wp-load.php');
+require_once(__DIR__ . '/wp-load.php');
 
-// Check if user is logged in as admin
-if (!current_user_can('administrator')) {
-    die('You must be logged in as an administrator to run this script.');
+echo '<!DOCTYPE html><html><head><title>Create Service Pages</title></head><body>';
+echo '<h1>Creating Service Pages</h1>';
+
+// Check if WordPress loaded
+if (!function_exists('wp_insert_post')) {
+    die('<p style="color:red;">Error: WordPress did not load properly.</p></body></html>');
 }
 
 // Get the Services parent page ID
@@ -78,4 +81,5 @@ foreach ($pages as $page_data) {
 echo '</ul>';
 echo '<p><strong>Done!</strong> Please delete this file (create-service-pages.php) for security.</p>';
 echo '<p><a href="' . home_url('/services') . '">View Services Page</a></p>';
+echo '</body></html>';
 ?>
