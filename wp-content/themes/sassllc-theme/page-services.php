@@ -153,27 +153,195 @@ get_header();
 <section class="hero" style="padding: 4rem 0;">
     <div class="container">
         <h1>Professional Accounting Services</h1>
-        <p>Comprehensive financial solutions for individuals and businesses. From day-to-day bookkeeping to complex tax strategies, we've got you covered.</p>
+        <p>Comprehensive financial solutions for individuals and businesses. From business formation and registration to bookkeeping and complex tax strategies, we've got you covered.</p>
     </div>
 </section>
 
-<!-- Bookkeeping Services -->
-<section id="bookkeeping" style="padding: 4rem 0;">
+<!-- Business Registration Services -->
+<section id="business-registration" style="padding: 4rem 0; background: var(--background-alt);">
     <div class="container">
-        <div class="service-split">
-            <div>
-                <h2>📚 Bookkeeping Services</h2>
-                <h3 style="color: var(--primary-color); font-weight: 500;">Keep Your Books in Order</h3>
-                <p>Accurate bookkeeping is the foundation of every successful business. Our professional bookkeeping services ensure your financial records are always up-to-date, organized, and ready for tax season.</p>
-                
-                <ul class="checklist">
-                    <li><strong>Accounts Payable Management</strong> – Track and manage vendor payments</li>
-                    <li><strong>Accounts Receivable Management</strong> – Invoice processing and payment tracking</li>
-                    <li><strong>Bank Reconciliation</strong> – Monthly reconciliation for accuracy</li>
-                    <li><strong>Financial Statement Preparation</strong> – P&L and balance sheets</li>
-                    <li><strong>Payroll Processing</strong> – Employee payroll and tax filings</li>
+        <div class="section-header">
+            <h2>🏢 Business Registration Services</h2>
+            <h3 style="color: var(--primary-color); font-weight: 500;">Start Your Business the Right Way</h3>
+            <p>Starting a business involves more than just having a great idea. Our comprehensive business registration services handle all the legal paperwork and compliance requirements, so you can focus on building your business.</p>
+        </div>
+        
+        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="service-card">
+                <h4>🏛️ Business Formation</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>LLC formation</li>
+                    <li>Corporation (C-Corp / S-Corp)</li>
+                    <li>Partnership registration</li>
+                    <li>Sole proprietorship setup</li>
+                    <li>Nonprofit organization formation</li>
                 </ul>
             </div>
+            
+            <div class="service-card">
+                <h4>📝 State & Federal Registration</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>EIN application</li>
+                    <li>State tax ID registration</li>
+                    <li>Sales & use tax registration</li>
+                    <li>Unemployment insurance registration</li>
+                    <li>Workers' compensation registration</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📜 Licensing & Permits</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>General business licenses</li>
+                    <li>Home-based business permits</li>
+                    <li>Zoning permits</li>
+                    <li>Occupancy permits</li>
+                    <li>Industry-specific licenses</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>✅ Compliance & Annual Filings</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Annual report filing</li>
+                    <li>Operating agreement creation</li>
+                    <li>Corporate bylaws drafting</li>
+                    <li>Meeting minutes preparation</li>
+                    <li>Compliance calendar management</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🏷️ DBA / Trade Name Services</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>DBA (Doing Business As) registration</li>
+                    <li>Trade name renewals</li>
+                    <li>Name availability checks</li>
+                    <li>Name reservation services</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📄 Document Preparation</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Articles of Organization</li>
+                    <li>Articles of Incorporation</li>
+                    <li>Amendments and name changes</li>
+                    <li>Dissolution filings</li>
+                    <li>Reinstatement filings</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>💼 Business Structure Consulting</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Entity type selection guidance</li>
+                    <li>Tax implications analysis</li>
+                    <li>Liability protection planning</li>
+                    <li>Startup compliance guidance</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🎖️ Specialty Registrations</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Minority-owned business certification</li>
+                    <li>Woman-owned business certification</li>
+                    <li>Veteran-owned business certification</li>
+                    <li>SAM.gov registration</li>
+                    <li>DUNS/UEI number assistance</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+            <h4 style="color: white;">Ready to Start Your Business?</h4>
+            <p style="color: rgba(255,255,255,0.9);">We'll guide you through every step of the business registration process.</p>
+            <a href="<?php echo home_url('/contact'); ?>" class="btn" style="margin-top: 1rem; background: white; color: var(--primary-color);">
+                Schedule Free Consultation
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Accounting & Bookkeeping Services -->
+<section id="accounting" style="padding: 4rem 0;">
+    <div class="container">
+        <div class="section-header">
+            <h2>📚 Accounting & Bookkeeping Services</h2>
+            <h3 style="color: var(--primary-color); font-weight: 500;">Complete Financial Management for Your Business</h3>
+            <p>Accurate bookkeeping and accounting are the foundation of every successful business. Our comprehensive accounting services ensure your financial records are always up-to-date, organized, and provide the insights you need for strategic decision-making.</p>
+        </div>
+        
+        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="service-card">
+                <h4>📊 Bookkeeping Services</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Expense categorization</li>
+                    <li>Bank & credit card reconciliation</li>
+                    <li>Monthly bookkeeping maintenance</li>
+                    <li>Accounts payable management</li>
+                    <li>Accounts receivable management</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📈 Financial Reporting</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Monthly financial statements</li>
+                    <li>Quarterly financial statements</li>
+                    <li>Custom management reports</li>
+                    <li>Cash flow statements</li>
+                    <li>Budget vs. actual reports</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>💰 Payroll Processing</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Weekly, bi-weekly, or monthly payroll</li>
+                    <li>Direct deposit setup</li>
+                    <li>Payroll tax calculations</li>
+                    <li>W-2 and 1099 preparation</li>
+                    <li>Quarterly payroll tax filings</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🔧 General Ledger Cleanup</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Historical bookkeeping cleanup</li>
+                    <li>Error correction</li>
+                    <li>Account reclassification</li>
+                    <li>Bringing books up to date</li>
+                    <li>Multi-year catch-up services</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>💻 Software Setup & Training</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>QuickBooks setup & customization</li>
+                    <li>Chart of accounts creation</li>
+                    <li>Software training sessions</li>
+                    <li>Ongoing support</li>
+                    <li>Data migration assistance</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🏢 Fixed Asset Tracking</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Asset listing and tracking</li>
+                    <li>Depreciation schedules</li>
+                    <li>Asset disposal tracking</li>
+                    <li>Tax depreciation planning</li>
+                    <li>Book vs. tax depreciation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="service-split" style="margin-top: 3rem; align-items: center;">
             <div class="service-box">
                 <h4>Industries We Serve:</h4>
                 <ul style="list-style: none; margin-top: 1rem;">
@@ -181,63 +349,137 @@ get_header();
                     <li style="padding: 0.5rem 0;">• Retail & E-commerce</li>
                     <li style="padding: 0.5rem 0;">• Restaurants & Hospitality</li>
                     <li style="padding: 0.5rem 0;">• Construction & Contractors</li>
-                    <li style="padding: 0.5rem 0;">• Real Estate</li>
-                    <li style="padding: 0.5rem 0;">• Nonprofits</li>
+                    <li style="padding: 0.5rem 0;">• Real Estate & Property Management</li>
+                    <li style="padding: 0.5rem 0;">• Healthcare & Medical Practices</li>
+                    <li style="padding: 0.5rem 0;">• Nonprofits & Organizations</li>
                     <li style="padding: 0.5rem 0;">• Startups & Entrepreneurs</li>
                 </ul>
-                <h4 style="margin-top: 1.5rem;">Software We Support:</h4>
-                <p style="margin-top: 0.5rem;">QuickBooks, Xero, FreshBooks, Wave, Sage</p>
+            </div>
+            <div class="service-box">
+                <h4>Software We Support:</h4>
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <span>✓ QuickBooks Online</span>
+                    <span>✓ QuickBooks Desktop</span>
+                    <span>✓ Xero</span>
+                    <span>✓ FreshBooks</span>
+                    <span>✓ Wave</span>
+                    <span>✓ Sage</span>
+                </div>
+                <p style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">And other major accounting platforms</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Tax Preparation -->
+<!-- Tax Preparation Services -->
 <section id="tax-prep" style="padding: 4rem 0; background: var(--background-alt);">
     <div class="container">
         <div class="section-header">
-            <h2>📋 Tax Preparation & Filing</h2>
+            <h2>📋 Tax Preparation Services</h2>
             <h3 style="color: var(--primary-color); font-weight: 500;">Maximize Refunds. Minimize Liability.</h3>
-            <p>Whether you're an individual, sole proprietor, or business owner, our tax preparation services ensure accuracy and maximize your tax savings.</p>
+            <p>Comprehensive tax preparation services for individuals and businesses. We ensure accuracy, maximize your tax savings, and keep you compliant with all federal and state requirements.</p>
         </div>
         
-        <div class="tax-two-col" style="margin-top: 2.5rem;">
+        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
             <div class="service-card">
-                <h4>Individual Tax Services</h4>
-                <ul>
-                    <li>Form 1040 Personal Income Tax Returns</li>
-                    <li>Schedule A Itemized Deductions</li>
-                    <li>Schedule C Self-Employment Income</li>
-                    <li>Schedule D Capital Gains & Losses</li>
-                    <li>Schedule E Rental & Royalty Income</li>
-                    <li>State and Local Tax Returns</li>
-                    <li>Prior Year & Amended Returns</li>
+                <h4>📄 Individual Tax Preparation</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Federal & state income tax returns</li>
+                    <li>Local tax filings</li>
+                    <li>Amended returns (1040-X)</li>
+                    <li>Prior-year return preparation</li>
+                    <li>ITIN application assistance</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h4>Business Tax Services</h4>
-                <ul>
-                    <li>Form 1120 C-Corporation Returns</li>
-                    <li>Form 1120-S S-Corporation Returns</li>
-                    <li>Form 1065 Partnership Returns</li>
-                    <li>Form 990 Nonprofit Returns</li>
-                    <li>Quarterly Estimated Tax Calculations</li>
-                    <li>Sales Tax Filings</li>
-                    <li>Multi-State Tax Returns</li>
+                <h4>🏢 Business Tax Preparation</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Sole proprietorship (Schedule C)</li>
+                    <li>Partnership returns (Form 1065)</li>
+                    <li>S-Corporation (Form 1120-S)</li>
+                    <li>C-Corporation (Form 1120)</li>
+                    <li>Nonprofit filings (Form 990)</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>💼 Payroll Tax Services</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Quarterly filings (Form 941)</li>
+                    <li>Annual filings (Form 940)</li>
+                    <li>W-2 and 1099 preparation</li>
+                    <li>State payroll tax returns</li>
+                    <li>Payroll tax reconciliation</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📊 Tax Planning & Advisory</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Year-round tax planning</li>
+                    <li>Estimated tax calculations</li>
+                    <li>Tax-saving strategies</li>
+                    <li>Entity structure analysis</li>
+                    <li>Retirement planning</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🔗 Accounting-Integrated Services</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Tax-ready financial statements</li>
+                    <li>Books cleanup for tax filing</li>
+                    <li>Sales tax compliance</li>
+                    <li>Multi-state nexus analysis</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🛡️ IRS & State Tax Resolution</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>IRS notice response</li>
+                    <li>Payment plan setup</li>
+                    <li>Penalty abatement</li>
+                    <li>Offer-in-compromise prep</li>
+                    <li>Audit support</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>⚡ Specialty Tax Services</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Gig worker / freelancer taxes</li>
+                    <li>Trucking & transportation</li>
+                    <li>Multi-state tax filings</li>
+                    <li>Real estate investors</li>
+                    <li>Cryptocurrency reporting</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📝 Document & Compliance</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Estimated tax vouchers</li>
+                    <li>Extensions (4868 / 7004)</li>
+                    <li>Tax document organization</li>
+                    <li>Tax return review</li>
                 </ul>
             </div>
         </div>
         
-        <div style="margin-top: 2.5rem; background: white; padding: 1.5rem; border-radius: 12px;">
-            <h4>Tax Credits We Help You Claim:</h4>
-            <div class="tax-credits-grid" style="margin-top: 1rem;">
-                <span>✓ Earned Income Tax Credit (EITC)</span>
-                <span>✓ Child Tax Credit</span>
-                <span>✓ Education Credits</span>
-                <span>✓ Home Office Deduction</span>
-                <span>✓ Retirement Contribution Credits</span>
-                <span>✓ Health Insurance Premium Credit</span>
+        <div style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 12px;">
+            <h4 style="text-align: center; margin-bottom: 1.5rem;">Tax Credits & Deductions We Help You Claim:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <span style="padding: 0.5rem;">✓ Earned Income Tax Credit (EITC)</span>
+                <span style="padding: 0.5rem;">✓ Child Tax Credit</span>
+                <span style="padding: 0.5rem;">✓ Education Credits</span>
+                <span style="padding: 0.5rem;">✓ Home Office Deduction</span>
+                <span style="padding: 0.5rem;">✓ Retirement Contribution Credits</span>
+                <span style="padding: 0.5rem;">✓ Health Insurance Premium Credit</span>
+                <span style="padding: 0.5rem;">✓ Qualified Business Income (199A)</span>
+                <span style="padding: 0.5rem;">✓ R&D Tax Credits</span>
+                <span style="padding: 0.5rem;">✓ Energy Efficiency Credits</span>
             </div>
         </div>
     </div>
@@ -274,53 +516,170 @@ get_header();
     </div>
 </section>
 
-<!-- Audit Defense -->
-<section id="audit-defense" style="padding: 5rem 0; background: var(--background-alt);">
+<!-- IRS Resolution Services -->
+<section id="irs-resolution" style="padding: 5rem 0; background: var(--background-alt);">
     <div class="container">
         <div class="section-header">
-            <h2>🛡️ IRS Audit Representation</h2>
-            <h3 style="color: var(--primary-color); font-weight: 500;"><?php echo sassllc_get_company_info('tagline'); ?></h3>
-            <p>Receiving a notice from the IRS can be stressful and intimidating. You don't have to face it alone. Our experienced team provides professional representation before the IRS to protect your rights.</p>
+            <h2>🛡️ IRS Resolution Services</h2>
+            <h3 style="color: var(--primary-color); font-weight: 500;">Expert Tax Problem Resolution</h3>
+            <p>Facing IRS tax problems? Our comprehensive resolution services help you resolve tax issues, stop collections, and protect your assets. We handle everything from notice responses to complex debt negotiations.</p>
         </div>
         
-        <div class="services-grid" style="margin-top: 3rem;">
+        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
             <div class="service-card">
-                <h4>Audit Defense Services</h4>
-                <ul>
-                    <li>IRS Correspondence Audits</li>
-                    <li>Office & Field Audit Representation</li>
-                    <li>Appeals Representation</li>
-                    <li>We communicate directly with the IRS</li>
+                <h4>📧 IRS Notice Response</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Review and explain IRS letters</li>
+                    <li>Draft professional responses</li>
+                    <li>Direct IRS communication</li>
+                    <li>Timeline management</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h4>Tax Resolution</h4>
-                <ul>
-                    <li>Offer in Compromise (OIC)</li>
-                    <li>Installment Agreement Negotiation</li>
-                    <li>Penalty Abatement Requests</li>
-                    <li>Innocent Spouse Relief</li>
+                <h4>💳 Installment Agreements</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Set up monthly payment plans</li>
+                    <li>Negotiate affordable terms</li>
+                    <li>Reinstate defaulted agreements</li>
+                    <li>Long-term payment options</li>
                 </ul>
             </div>
             
             <div class="service-card">
-                <h4>Levy & Lien Services</h4>
-                <ul>
-                    <li>Wage Garnishment Release</li>
-                    <li>Bank Levy Release</li>
-                    <li>Property Lien Release</li>
-                    <li>Unfiled Tax Return Filing</li>
+                <h4>🤝 Offer in Compromise</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Determine eligibility</li>
+                    <li>Prepare OIC applications</li>
+                    <li>Financial documentation</li>
+                    <li>Settlement negotiation</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>⚠️ Penalty Abatement</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>First-time penalty relief</li>
+                    <li>Reasonable cause abatement</li>
+                    <li>Documentation preparation</li>
+                    <li>IRS penalty negotiation</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🚫 Wage Garnishment Release</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Emergency levy release</li>
+                    <li>Bank levy release</li>
+                    <li>Payment alternatives</li>
+                    <li>Future levy prevention</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🏠 Tax Lien Assistance</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Lien withdrawal requests</li>
+                    <li>Lien subordination</li>
+                    <li>Lien release support</li>
+                    <li>Credit repair assistance</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📋 Back Tax Filing</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Prepare unfiled returns</li>
+                    <li>Correct filed returns</li>
+                    <li>Income reconstruction</li>
+                    <li>Full compliance restoration</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>👥 Innocent Spouse Relief</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Eligibility evaluation</li>
+                    <li>Relief request preparation</li>
+                    <li>Form 8857 submission</li>
+                    <li>Review process support</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🔍 Audit Representation</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Audit notice response</li>
+                    <li>Documentation preparation</li>
+                    <li>IRS auditor communication</li>
+                    <li>Appeals representation</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>⏸️ Currently Not Collectible</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Eligibility determination</li>
+                    <li>Hardship documentation</li>
+                    <li>CNC status requests</li>
+                    <li>Annual review assistance</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>📊 IRS Transcript Review</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>Pull IRS transcripts</li>
+                    <li>Analyze account history</li>
+                    <li>Identify issues & balances</li>
+                    <li>Create resolution plan</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h4>🏛️ State Tax Resolution</h4>
+                <ul style="margin-top: 1rem;">
+                    <li>State tax notice response</li>
+                    <li>State payment plans</li>
+                    <li>State lien & levy resolution</li>
+                    <li>Multi-state coordination</li>
                 </ul>
             </div>
         </div>
         
         <div style="margin-top: 3rem; background: #FEF2F2; border: 2px solid #EF4444; padding: 2rem; border-radius: 12px; text-align: center;">
-            <h4 style="color: #DC2626;">Received an IRS Notice?</h4>
-            <p style="color: #7F1D1D;">Time is of the essence. Contact us immediately for urgent assistance.</p>
-            <a href="tel:<?php echo sassllc_get_company_info('phone'); ?>" class="btn btn-primary" style="margin-top: 1rem; background: #DC2626; border-color: #DC2626;">
-                Call Now: <?php echo sassllc_get_company_info('phone'); ?>
-            </a>
+            <h4 style="color: #DC2626;">⚠️ Received an IRS Notice?</h4>
+            <p style="color: #7F1D1D; margin-top: 0.5rem;">Time is critical when dealing with IRS problems. Don't wait – contact us immediately for urgent assistance.</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="tel:<?php echo sassllc_get_company_info('phone'); ?>" class="btn btn-primary" style="background: #DC2626; border-color: #DC2626; margin-right: 1rem;">
+                    Emergency Call: <?php echo sassllc_get_company_info('phone'); ?>
+                </a>
+                <a href="<?php echo home_url('/contact'); ?>" class="btn" style="background: white; color: #DC2626; border: 2px solid #DC2626;">
+                    Schedule Consultation
+                </a>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 2rem; border-radius: 12px; color: white;">
+            <h4 style="color: white;">Why Choose Our IRS Resolution Services:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div>
+                    <strong style="color: white;">✓ Direct IRS Communication</strong>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 0.25rem;">We handle all communication with the IRS on your behalf</p>
+                </div>
+                <div>
+                    <strong style="color: white;">✓ Proven Track Record</strong>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 0.25rem;">Successfully resolved thousands of complex tax cases</p>
+                </div>
+                <div>
+                    <strong style="color: white;">✓ Comprehensive Solutions</strong>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 0.25rem;">Handle all types of federal and state tax problems</p>
+                </div>
+                <div>
+                    <strong style="color: white;">✓ Fast Response</strong>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 0.25rem;">Immediate action to stop IRS collection activities</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
