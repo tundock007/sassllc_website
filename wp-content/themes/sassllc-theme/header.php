@@ -11,7 +11,7 @@
 <header class="site-header">
     <div class="header-container">
         <a href="<?php echo home_url(); ?>" class="site-logo">
-            <img src="<?php echo home_url('/assets/image/Logo 2.jpg'); ?>" alt="Simplified Accounting Solutions, LLC" class="logo-image">
+            <img src="<?php echo home_url('/assets/image/Logo%202.jpg'); ?>" alt="Simplified Accounting Solutions, LLC" class="logo-image">
         </a>
         
         <button class="mobile-menu-toggle" aria-label="Toggle menu">
