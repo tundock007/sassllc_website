@@ -427,11 +427,13 @@ section {
 }
 
 .service-card li::before {
-    content: '→';
+    content: '✓';
     position: absolute;
     left: 0;
+    top: 0.6rem;
     color: var(--accent-color);
     font-weight: bold;
+    font-size: 0.9rem;
 }
 
 /* CTA Section */
