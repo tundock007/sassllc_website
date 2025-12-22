@@ -64,7 +64,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>💳 Installment Agreements</h4>
+                <h4>Installment Agreements</h4>
                 <ul>
                     <li>Set up monthly payment plans</li>
                     <li>Negotiate affordable terms</li>
@@ -114,7 +114,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📋 Back Tax Filing</h4>
+                <h4>Back Tax Filing</h4>
                 <ul>
                     <li>Prepare unfiled returns</li>
                     <li>Correct filed returns</li>
@@ -124,7 +124,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>👥 Innocent Spouse Relief</h4>
+                <h4>Innocent Spouse Relief</h4>
                 <ul>
                     <li>Eligibility evaluation</li>
                     <li>Relief request preparation</li>
@@ -134,7 +134,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🔍 Audit Representation</h4>
+                <h4>Audit Representation</h4>
                 <ul>
                     <li>Audit notice response</li>
                     <li>Documentation preparation</li>
@@ -154,7 +154,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📊 IRS Transcript Review</h4>
+                <h4>IRS Transcript Review</h4>
                 <ul>
                     <li>Pull IRS transcripts</li>
                     <li>Analyze account history</li>
@@ -164,7 +164,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🏛️ State Tax Resolution</h4>
+                <h4>State Tax Resolution</h4>
                 <ul>
                     <li>State tax notice response</li>
                     <li>State payment plans</li>

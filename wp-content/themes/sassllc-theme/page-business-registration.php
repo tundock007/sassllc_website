@@ -54,7 +54,7 @@ get_header();
     <div class="container">
         <div class="services-grid">
             <div class="service-card">
-                <h4>🏛️ Business Formation</h4>
+                <h4>Business Formation</h4>
                 <ul>
                     <li>LLC formation</li>
                     <li>Corporation (C-Corp / S-Corp)</li>
@@ -65,7 +65,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📝 State & Federal Registration</h4>
+                <h4>State & Federal Registration</h4>
                 <ul>
                     <li>EIN application</li>
                     <li>State tax ID registration</li>
@@ -76,7 +76,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📜 Licensing & Permits</h4>
+                <h4>Licensing & Permits</h4>
                 <ul>
                     <li>General business licenses</li>
                     <li>Home-based business permits</li>
@@ -87,7 +87,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>✅ Compliance & Annual Filings</h4>
+                <h4>Compliance & Annual Filings</h4>
                 <ul>
                     <li>Annual report filing</li>
                     <li>Operating agreement creation</li>
@@ -98,7 +98,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🏷️ DBA / Trade Name Services</h4>
+                <h4>DBA / Trade Name Services</h4>
                 <ul>
                     <li>DBA (Doing Business As) registration</li>
                     <li>Trade name renewals</li>
@@ -108,7 +108,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📄 Document Preparation</h4>
+                <h4>Document Preparation</h4>
                 <ul>
                     <li>Articles of Organization</li>
                     <li>Articles of Incorporation</li>
@@ -119,7 +119,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>💼 Business Structure Consulting</h4>
+                <h4>Business Structure Consulting</h4>
                 <ul>
                     <li>Entity type selection guidance</li>
                     <li>Tax implications analysis</li>
@@ -129,7 +129,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🎖️ Specialty Registrations</h4>
+                <h4>Specialty Registrations</h4>
                 <ul>
                     <li>Minority-owned business certification</li>
                     <li>Woman-owned business certification</li>

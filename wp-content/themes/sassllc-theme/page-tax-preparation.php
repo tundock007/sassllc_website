@@ -54,7 +54,7 @@ get_header();
     <div class="container">
         <div class="services-grid">
             <div class="service-card">
-                <h4>📄 Individual Tax Preparation</h4>
+                <h4>Individual Tax Preparation</h4>
                 <ul>
                     <li>Federal & state income tax returns</li>
                     <li>Local tax filings</li>
@@ -65,7 +65,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🏢 Business Tax Preparation</h4>
+                <h4>Business Tax Preparation</h4>
                 <ul>
                     <li>Sole proprietorship (Schedule C)</li>
                     <li>Partnership returns (Form 1065)</li>
@@ -76,7 +76,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>💼 Payroll Tax Services</h4>
+                <h4>Payroll Tax Services</h4>
                 <ul>
                     <li>Quarterly filings (Form 941)</li>
                     <li>Annual filings (Form 940)</li>
@@ -87,7 +87,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📊 Tax Planning & Advisory</h4>
+                <h4>Tax Planning & Advisory</h4>
                 <ul>
                     <li>Year-round tax planning</li>
                     <li>Estimated tax calculations</li>
@@ -108,7 +108,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🛡️ IRS & State Tax Resolution</h4>
+                <h4>IRS & State Tax Resolution</h4>
                 <ul>
                     <li>IRS notice response</li>
                     <li>Payment plan setup</li>
@@ -130,7 +130,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📝 Document & Compliance</h4>
+                <h4>Document & Compliance</h4>
                 <ul>
                     <li>Estimated tax vouchers</li>
                     <li>Extensions (4868 / 7004)</li>

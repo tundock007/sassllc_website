@@ -61,7 +61,7 @@ get_header();
     <div class="container">
         <div class="services-grid">
             <div class="service-card">
-                <h4>📊 Bookkeeping Services</h4>
+                <h4>Bookkeeping Services</h4>
                 <ul>
                     <li>Expense categorization</li>
                     <li>Bank & credit card reconciliation</li>
@@ -72,7 +72,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>📈 Financial Reporting</h4>
+                <h4>Financial Reporting</h4>
                 <ul>
                     <li>Monthly financial statements</li>
                     <li>Quarterly financial statements</li>
@@ -83,7 +83,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>💰 Payroll Processing</h4>
+                <h4>Payroll Processing</h4>
                 <ul>
                     <li>Weekly, bi-weekly, or monthly payroll</li>
                     <li>Direct deposit setup</li>
@@ -94,7 +94,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🔧 General Ledger Cleanup</h4>
+                <h4>General Ledger Cleanup</h4>
                 <ul>
                     <li>Historical bookkeeping cleanup</li>
                     <li>Error correction</li>
@@ -105,7 +105,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>💻 Software Setup & Training</h4>
+                <h4>Software Setup & Training</h4>
                 <ul>
                     <li>QuickBooks setup & customization</li>
                     <li>Chart of accounts creation</li>
@@ -116,7 +116,7 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>🏢 Fixed Asset Tracking</h4>
+                <h4>Fixed Asset Tracking</h4>
                 <ul>
                     <li>Asset listing and tracking</li>
                     <li>Depreciation schedules</li>
