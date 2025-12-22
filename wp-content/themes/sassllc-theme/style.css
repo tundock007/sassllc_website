@@ -125,6 +125,10 @@ p {
     gap: 2.5rem;
 }
 
+.main-nav li {
+    position: relative;
+}
+
 .main-nav a {
     color: var(--text-light);
     font-weight: 500;
@@ -147,6 +151,50 @@ p {
     right: 0;
     height: 2px;
     background: var(--accent-color);
+}
+
+/* Dropdown Menu */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    z-index: 1000;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--background-alt);
+    color: var(--accent-color);
+}
+
+.dropdown-menu a::after {
+    display: none;
 }
 
 .header-cta .btn {

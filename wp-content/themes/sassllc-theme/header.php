@@ -23,7 +23,15 @@
         <nav class="main-nav">
             <ul>
                 <li><a href="<?php echo home_url(); ?>" <?php if(is_front_page()) echo 'class="active"'; ?>>Home</a></li>
-                <li><a href="<?php echo home_url('/services'); ?>" <?php if(is_page('services')) echo 'class="active"'; ?>>Services</a></li>
+                <li class="has-dropdown">
+                    <a href="<?php echo home_url('/services'); ?>" <?php if(is_page(array('services', 'business-registration', 'accounting-bookkeeping', 'tax-preparation', 'irs-resolution'))) echo 'class="active"'; ?>>Services ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo home_url('/services/business-registration'); ?>">Business Registration</a></li>
+                        <li><a href="<?php echo home_url('/services/accounting-bookkeeping'); ?>">Accounting & Bookkeeping</a></li>
+                        <li><a href="<?php echo home_url('/services/tax-preparation'); ?>">Tax Preparation</a></li>
+                        <li><a href="<?php echo home_url('/services/irs-resolution'); ?>">IRS Resolution</a></li>
+                    </ul>
+                </li>
                 <li><a href="<?php echo home_url('/about'); ?>" <?php if(is_page('about')) echo 'class="active"'; ?>>About Us</a></li>
                 <li><a href="<?php echo home_url('/contact'); ?>" <?php if(is_page('contact')) echo 'class="active"'; ?>>Contact</a></li>
             </ul>
@@ -53,6 +61,17 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             nav.classList.remove('active');
             toggle.classList.remove('active');
+        });
+    });
+    
+    // Dropdown functionality
+    const dropdownTriggers = document.querySelectorAll('.has-dropdown > a');
+    dropdownTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('dropdown-open');
+            }
         });
     });
 });
