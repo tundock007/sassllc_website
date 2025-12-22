@@ -105,6 +105,14 @@ p {
     font-weight: 700;
     color: var(--text-dark);
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+}
+
+.site-logo .logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 .site-logo span {
