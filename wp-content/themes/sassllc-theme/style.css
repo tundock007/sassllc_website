@@ -170,14 +170,16 @@ p {
     padding: 0.5rem 0;
     margin-top: 0.5rem;
     z-index: 1000;
+    flex-direction: column;
 }
 
 .has-dropdown:hover .dropdown-menu {
-    display: block;
+    display: flex;
 }
 
 .dropdown-menu li {
     display: block;
+    width: 100%;
 }
 
 .dropdown-menu a {
@@ -186,6 +188,7 @@ p {
     color: var(--text-dark);
     font-size: 0.9rem;
     transition: background-color 0.2s ease;
+    white-space: nowrap;
 }
 
 .dropdown-menu a:hover {
