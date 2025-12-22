@@ -158,8 +158,8 @@ p {
     position: relative;
 }
 
-.dropdown-menu {
-    display: none;
+.has-dropdown .dropdown-menu {
+    display: none !important;
     position: absolute;
     top: 100%;
     left: 0;
@@ -173,7 +173,7 @@ p {
 }
 
 .has-dropdown:hover .dropdown-menu {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
 }
 
