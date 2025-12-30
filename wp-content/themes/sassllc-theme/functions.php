@@ -295,16 +295,14 @@ function sassllc_add_contact_admin_menu() {
 add_action('admin_menu', 'sassllc_add_contact_admin_menu');
 
 function sassllc_contact_submissions_page() {
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'contact_submissions';
-    
-    // Check if table exists
-    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
-        echo '<div class="wrap"><h1>Contact Submissions</h1><p>No submissions found yet.</p></div>';
-        return;
-    }
-    
-    $submissions = $wpdb->get_results("SELECT * FROM $table_name ORDER BY submitted_at DESC");
+    // Query WordPress posts with contact_submission post type
+    $submissions = get_posts(array(
+        'post_type' => 'contact_submission',
+        'post_status' => 'private',
+        'numberposts' => -1,
+        'orderby' => 'date',
+        'order' => 'DESC'
+    ));
     
     echo '<div class="wrap">';
     echo '<h1>Contact Form Submissions</h1>';
@@ -319,13 +317,19 @@ function sassllc_contact_submissions_page() {
         echo '<tbody>';
         
         foreach ($submissions as $submission) {
+            $contact_name = get_post_meta($submission->ID, 'contact_name', true);
+            $contact_email = get_post_meta($submission->ID, 'contact_email', true);
+            $contact_phone = get_post_meta($submission->ID, 'contact_phone', true);
+            $contact_subject = get_post_meta($submission->ID, 'contact_subject', true);
+            $contact_message = get_post_meta($submission->ID, 'contact_message', true);
+            
             echo '<tr>';
-            echo '<td>' . date('M j, Y g:i A', strtotime($submission->submitted_at)) . '</td>';
-            echo '<td>' . esc_html($submission->first_name . ' ' . $submission->last_name) . '</td>';
-            echo '<td><a href="mailto:' . esc_attr($submission->email) . '">' . esc_html($submission->email) . '</a></td>';
-            echo '<td>' . esc_html($submission->subject) . '</td>';
-            echo '<td>' . wp_trim_words(esc_html($submission->message), 10) . '</td>';
-            echo '<td>' . esc_html($submission->contact_method) . '</td>';
+            echo '<td>' . date('M j, Y g:i A', strtotime($submission->post_date)) . '</td>';
+            echo '<td>' . esc_html($contact_name) . '</td>';
+            echo '<td><a href="mailto:' . esc_attr($contact_email) . '">' . esc_html($contact_email) . '</a></td>';
+            echo '<td>' . esc_html($contact_subject) . '</td>';
+            echo '<td>' . wp_trim_words(esc_html($contact_message), 10) . '</td>';
+            echo '<td>email</td>';
             echo '</tr>';
         }
         
