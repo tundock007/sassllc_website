@@ -74,50 +74,8 @@ get_header();
             <div>
                 <h2>Send Us a Message</h2>
                 
-                <?php sassllc_contact_form_messages(); ?>
+                <?php echo do_shortcode('[contact-form-7 id="686a2c" title="Contact form 1"]'); ?>
                 
-                <form class="contact-form" action="" method="POST">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <input type="text" name="first_name" placeholder="First Name *" required>
-                        <input type="text" name="last_name" placeholder="Last Name *" required>
-                    </div>
-                    
-                    <input type="email" name="email" placeholder="Email Address *" required>
-                    
-                    <input type="tel" name="phone" placeholder="Phone Number">
-                    
-                    <select name="subject">
-                        <option value="">Select a Subject</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="tax-prep">Tax Preparation</option>
-                        <option value="accounting">Accounting Services</option>
-                        <option value="tax-planning">Tax Planning</option>
-                        <option value="audit">IRS Audit Help</option>
-                        <option value="other">Other</option>
-                    </select>
-                    
-                    <textarea name="message" placeholder="Your Message *" required></textarea>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Preferred Contact Method</label>
-                        <div style="display: flex; gap: 2rem;">
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                                <input type="radio" name="contact_method" value="email" checked> Email
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                                <input type="radio" name="contact_method" value="phone"> Phone
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <input type="hidden" name="contact_form_submit" value="1">
-                    
-                    <button type="submit" class="btn btn-purple" style="width: 100%;">Send Message</button>
-                    
-                    <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 1rem; text-align: center;">
-                        We typically respond within 24 business hours.
-                    </p>
-                </form>
             </div>
         </div>
     </div>
