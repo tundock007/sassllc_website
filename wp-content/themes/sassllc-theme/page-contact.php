@@ -151,7 +151,7 @@ get_header();
                             $debug_info .= "Saved to database with ID: $post_id. ";
                             
                             // Try to send email notification
-                            $to = 'info@sassllc.com'; // Your business email
+                            $to = 'ola@wecaremn.org'; // Your business email
                             $email_subject = 'Website Contact Form: ' . $subject;
                             $email_body = "You have received a new message from your website contact form:\n\n";
                             $email_body .= "Name: $name\n";
