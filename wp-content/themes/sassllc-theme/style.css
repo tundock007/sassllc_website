@@ -525,6 +525,17 @@ section {
     font-size: 1.25rem;
 }
 
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
@@ -533,7 +544,7 @@ section {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     font-family: inherit;
     transition: all 0.3s ease;
     background: var(--background);
