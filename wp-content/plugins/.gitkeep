@@ -1,0 +1,2 @@
+# This file ensures the plugins directory is tracked in git
+# Add your plugins here to persist them across deployments
