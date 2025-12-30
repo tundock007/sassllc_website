@@ -78,6 +78,11 @@ get_header();
                 $form_submitted = false;
                 $form_errors = array();
                 
+                // Check if we're showing a success message from redirect
+                if (isset($_GET['message']) && $_GET['message'] === 'sent') {
+                    $form_submitted = true;
+                }
+                
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submit'])) {
                     if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
                         $form_errors[] = 'Security validation failed. Please try again.';
@@ -111,7 +116,9 @@ get_header();
                             );
                             
                             if (wp_mail($to, $email_subject, $email_body, $headers)) {
-                                $form_submitted = true;
+                                // Redirect to prevent form resubmission
+                                wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                                exit;
                             } else {
                                 $form_errors[] = 'Failed to send message. Please try again or contact us directly.';
                             }
@@ -172,8 +179,26 @@ get_header();
                         <textarea id="contact_message" name="contact_message" rows="6" required><?php echo isset($_POST['contact_message']) ? esc_textarea($_POST['contact_message']) : ''; ?></textarea>
                     </div>
                     
-                    <button type="submit" name="contact_form_submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" name="contact_form_submit" class="btn btn-primary" id="contact-submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">Sending...</span>
+                    </button>
                 </form>
+                
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.querySelector('.contact-form');
+                    const submitBtn = document.getElementById('contact-submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
+                    
+                    form.addEventListener('submit', function() {
+                        submitBtn.disabled = true;
+                        btnText.style.display = 'none';
+                        btnLoading.style.display = 'inline';
+                    });
+                });
+                </script>
                 
             </div>
         </div>
