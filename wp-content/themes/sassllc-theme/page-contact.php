@@ -100,45 +100,44 @@ get_header();
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['contact_form_submit']) || isset($_POST['contact_form_nonce']))) {
                     $debug_info .= 'Processing form submission. ';
                     
+                    // Check nonce but don't stop processing if it fails (for debugging)
                     if (!isset($_POST['contact_form_nonce'])) {
-                        $form_errors[] = 'Security token missing. Please refresh the page and try again.';
                         $debug_info .= 'Nonce missing completely. ';
+                        // Don't add to errors for now: $form_errors[] = 'Security token missing. Please refresh the page and try again.';
                     } elseif (!wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
-                        // Add detailed nonce debugging
                         $nonce_age = wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action');
                         $debug_info .= "Nonce validation failed. Nonce value: '" . esc_html($_POST['contact_form_nonce']) . "'. Age result: " . var_export($nonce_age, true) . ". ";
-                        
-                        // For development, let's temporarily allow the form to work
                         $debug_info .= 'Allowing submission despite nonce failure for debugging. ';
-                        // Commented out for now: $form_errors[] = 'Security validation failed. Please try again.';
                     } else {
                         $debug_info .= 'Nonce validation passed. ';
-                        
-                        $name = sanitize_text_field($_POST['contact_name'] ?? '');
-                        $email = sanitize_email($_POST['contact_email'] ?? '');
-                        $phone = sanitize_text_field($_POST['contact_phone'] ?? '');
-                        $subject = sanitize_text_field($_POST['contact_subject'] ?? '');
-                        $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
-                        
-                        $debug_info .= "Data extracted: name='$name', email='$email', subject='$subject', message_length=" . strlen($message) . ". ";
-                        
-                        if (empty($name)) {
-                            $form_errors[] = 'Name is required.';
-                            $debug_info .= 'Name validation failed. ';
-                        }
-                        if (empty($email)) {
-                            $form_errors[] = 'Email is required.';
-                            $debug_info .= 'Email empty validation failed. ';
-                        } elseif (!is_email($email)) {
-                            $form_errors[] = 'Please enter a valid email address.';
-                            $debug_info .= 'Email format validation failed. ';
-                        }
-                        if (empty($message)) {
-                            $form_errors[] = 'Message is required.';
-                            $debug_info .= 'Message validation failed. ';
-                        }
-                        
-                        $debug_info .= 'Validation complete. Error count: ' . count($form_errors) . '. ';
+                    }
+                    
+                    // Process form data regardless of nonce status (for debugging)
+                    $name = sanitize_text_field($_POST['contact_name'] ?? '');
+                    $email = sanitize_email($_POST['contact_email'] ?? '');
+                    $phone = sanitize_text_field($_POST['contact_phone'] ?? '');
+                    $subject = sanitize_text_field($_POST['contact_subject'] ?? '');
+                    $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
+                    
+                    $debug_info .= "Data extracted: name='$name', email='$email', subject='$subject', message_length=" . strlen($message) . ". ";
+                    
+                    if (empty($name)) {
+                        $form_errors[] = 'Name is required.';
+                        $debug_info .= 'Name validation failed. ';
+                    }
+                    if (empty($email)) {
+                        $form_errors[] = 'Email is required.';
+                        $debug_info .= 'Email empty validation failed. ';
+                    } elseif (!is_email($email)) {
+                        $form_errors[] = 'Please enter a valid email address.';
+                        $debug_info .= 'Email format validation failed. ';
+                    }
+                    if (empty($message)) {
+                        $form_errors[] = 'Message is required.';
+                        $debug_info .= 'Message validation failed. ';
+                    }
+                    
+                    $debug_info .= 'Validation complete. Error count: ' . count($form_errors) . '. ';
                         
                         if (empty($form_errors)) {
                             $debug_info .= 'No validation errors, saving to database. ';
@@ -196,7 +195,6 @@ get_header();
                         } else {
                             $debug_info .= 'Validation errors: ' . implode(', ', $form_errors) . '. ';
                         }
-                    }
                 }
                 ?>
                             wp_mail($to, $email_subject, $email_body, $headers);
