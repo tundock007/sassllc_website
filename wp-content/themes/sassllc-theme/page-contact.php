@@ -81,12 +81,13 @@ get_header();
                 // Debug: Check if form was submitted
                 $debug_info = '';
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $debug_info = 'Form submitted. ';
+                    $debug_info = 'Form submitted via POST. ';
                     if (isset($_POST['contact_form_submit'])) {
                         $debug_info .= 'Submit button detected. ';
                     } else {
                         $debug_info .= 'Submit button NOT detected. ';
                     }
+                    $debug_info .= 'POST data keys: ' . implode(', ', array_keys($_POST)) . '. ';
                 }
                 
                 // Check if we're showing a success message from redirect
@@ -95,14 +96,21 @@ get_header();
                 }
                 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submit'])) {
+                    $debug_info .= 'Processing form submission. ';
+                    
                     if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
                         $form_errors[] = 'Security validation failed. Please try again.';
+                        $debug_info .= 'Nonce validation failed. ';
                     } else {
+                        $debug_info .= 'Nonce validation passed. ';
+                        
                         $name = sanitize_text_field($_POST['contact_name'] ?? '');
                         $email = sanitize_email($_POST['contact_email'] ?? '');
                         $phone = sanitize_text_field($_POST['contact_phone'] ?? '');
                         $subject = sanitize_text_field($_POST['contact_subject'] ?? '');
                         $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
+                        
+                        $debug_info .= "Data: name='$name', email='$email', subject='$subject'. ";
                         
                         if (empty($name)) $form_errors[] = 'Name is required.';
                         if (empty($email)) {
@@ -113,6 +121,8 @@ get_header();
                         if (empty($message)) $form_errors[] = 'Message is required.';
                         
                         if (empty($form_errors)) {
+                            $debug_info .= 'No validation errors, saving to database. ';
+                            
                             // Save submission to database first (always works)
                             $submission_data = array(
                                 'post_title' => 'Contact Form: ' . $name . ' - ' . date('Y-m-d H:i:s'),
@@ -127,7 +137,8 @@ get_header();
                                     'contact_message' => $message,
                                 )
                             );
-                            wp_insert_post($submission_data);
+                            $post_id = wp_insert_post($submission_data);
+                            $debug_info .= "Saved to database with ID: $post_id. ";
                             
                             // Try to send email notification
                             $to = 'info@sassllc.com'; // Your business email
@@ -148,6 +159,19 @@ get_header();
                             );
                             
                             // Send email (will work if server has mail configured, otherwise fails silently)
+                            $email_sent = wp_mail($to, $email_subject, $email_body, $headers);
+                            $debug_info .= $email_sent ? 'Email sent successfully. ' : 'Email sending failed. ';
+                            
+                            // Always redirect and show success (regardless of email success)
+                            $debug_info .= 'About to redirect...';
+                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                            exit;
+                        } else {
+                            $debug_info .= 'Validation errors: ' . implode(', ', $form_errors) . '. ';
+                        }
+                    }
+                }
+                ?>
                             wp_mail($to, $email_subject, $email_body, $headers);
                             
                             // Always redirect and show success (regardless of email success)
@@ -175,9 +199,9 @@ get_header();
                     </div>
                 <?php endif; ?>
                 
-                <?php if (!empty($debug_info) && WP_DEBUG): ?>
+                <?php if (!empty($debug_info)): ?>
                     <div style="background: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #ffeaa7;">
-                        <strong>Debug:</strong> <?php echo esc_html($debug_info); ?>
+                        <strong>Debug Info:</strong> <?php echo esc_html($debug_info); ?>
                     </div>
                 <?php endif; ?>
                 
