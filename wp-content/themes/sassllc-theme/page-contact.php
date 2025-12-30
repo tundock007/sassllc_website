@@ -74,7 +74,106 @@ get_header();
             <div>
                 <h2>Send Us a Message</h2>
                 
-                <?php echo do_shortcode('[contact-form-7 id="686a2c" title="Contact form 1"]'); ?>
+                <?php
+                $form_submitted = false;
+                $form_errors = array();
+                
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submit'])) {
+                    if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
+                        $form_errors[] = 'Security validation failed. Please try again.';
+                    } else {
+                        $name = sanitize_text_field($_POST['contact_name'] ?? '');
+                        $email = sanitize_email($_POST['contact_email'] ?? '');
+                        $phone = sanitize_text_field($_POST['contact_phone'] ?? '');
+                        $subject = sanitize_text_field($_POST['contact_subject'] ?? '');
+                        $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
+                        
+                        if (empty($name)) $form_errors[] = 'Name is required.';
+                        if (empty($email)) {
+                            $form_errors[] = 'Email is required.';
+                        } elseif (!is_email($email)) {
+                            $form_errors[] = 'Please enter a valid email address.';
+                        }
+                        if (empty($message)) $form_errors[] = 'Message is required.';
+                        
+                        if (empty($form_errors)) {
+                            $to = sassllc_get_company_info('email');
+                            $email_subject = 'Contact Form: ' . $subject;
+                            $email_body = "Name: $name\n";
+                            $email_body .= "Email: $email\n";
+                            $email_body .= "Phone: $phone\n\n";
+                            $email_body .= "Message:\n$message\n";
+                            
+                            $headers = array(
+                                'From: ' . get_bloginfo('name') . ' <wordpress@' . $_SERVER['HTTP_HOST'] . '>',
+                                'Reply-To: ' . $name . ' <' . $email . '>',
+                                'Content-Type: text/plain; charset=UTF-8'
+                            );
+                            
+                            if (wp_mail($to, $email_subject, $email_body, $headers)) {
+                                $form_submitted = true;
+                            } else {
+                                $form_errors[] = 'Failed to send message. Please try again or contact us directly.';
+                            }
+                        }
+                    }
+                }
+                ?>
+                
+                <?php if ($form_submitted): ?>
+                    <div style="background: #d4edda; color: #155724; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #c3e6cb;">
+                        <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you as soon as possible.
+                    </div>
+                <?php endif; ?>
+                
+                <?php if (!empty($form_errors)): ?>
+                    <div style="background: #f8d7da; color: #721c24; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #f5c6cb;">
+                        <strong>Please correct the following errors:</strong>
+                        <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem;">
+                            <?php foreach ($form_errors as $error): ?>
+                                <li><?php echo esc_html($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+                
+                <form method="post" action="" class="contact-form">
+                    <?php wp_nonce_field('contact_form_action', 'contact_form_nonce'); ?>
+                    
+                    <div class="form-group">
+                        <label for="contact_name">Your Name *</label>
+                        <input type="text" id="contact_name" name="contact_name" required value="<?php echo isset($_POST['contact_name']) ? esc_attr($_POST['contact_name']) : ''; ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact_email">Your Email *</label>
+                        <input type="email" id="contact_email" name="contact_email" required value="<?php echo isset($_POST['contact_email']) ? esc_attr($_POST['contact_email']) : ''; ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact_phone">Phone Number</label>
+                        <input type="tel" id="contact_phone" name="contact_phone" value="<?php echo isset($_POST['contact_phone']) ? esc_attr($_POST['contact_phone']) : ''; ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact_subject">Subject</label>
+                        <select id="contact_subject" name="contact_subject">
+                            <option value="General Inquiry" <?php selected(isset($_POST['contact_subject']) ? $_POST['contact_subject'] : '', 'General Inquiry'); ?>>General Inquiry</option>
+                            <option value="Tax Preparation" <?php selected(isset($_POST['contact_subject']) ? $_POST['contact_subject'] : '', 'Tax Preparation'); ?>>Tax Preparation</option>
+                            <option value="Accounting & Bookkeeping" <?php selected(isset($_POST['contact_subject']) ? $_POST['contact_subject'] : '', 'Accounting & Bookkeeping'); ?>>Accounting & Bookkeeping</option>
+                            <option value="IRS Resolution" <?php selected(isset($_POST['contact_subject']) ? $_POST['contact_subject'] : '', 'IRS Resolution'); ?>>IRS Resolution</option>
+                            <option value="Business Registration" <?php selected(isset($_POST['contact_subject']) ? $_POST['contact_subject'] : '', 'Business Registration'); ?>>Business Registration</option>
+                            <option value="Free Consultation" <?php selected(isset($_POST['contact_subject']) ? $_POST['contact_subject'] : '', 'Free Consultation'); ?>>Free Consultation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact_message">Your Message *</label>
+                        <textarea id="contact_message" name="contact_message" rows="6" required><?php echo isset($_POST['contact_message']) ? esc_textarea($_POST['contact_message']) : ''; ?></textarea>
+                    </div>
+                    
+                    <button type="submit" name="contact_form_submit" class="btn btn-primary">Send Message</button>
+                </form>
                 
             </div>
         </div>
