@@ -148,7 +148,13 @@ get_header();
                                 )
                             );
                             $post_id = wp_insert_post($submission_data);
-                            $debug_info .= "Saved to database with ID: $post_id. ";
+                            if (is_wp_error($post_id)) {
+                                $debug_info .= "Database save FAILED: " . $post_id->get_error_message() . ". ";
+                            } elseif ($post_id > 0) {
+                                $debug_info .= "Successfully saved to database with ID: $post_id. ";
+                            } else {
+                                $debug_info .= "Database save returned 0 (failed). ";
+                            }
                             
                             // Try to send email notification
                             $to = 'ola@wecaremn.org'; // Your business email
@@ -173,9 +179,10 @@ get_header();
                             $debug_info .= $email_sent ? 'Email sent successfully. ' : 'Email sending failed. ';
                             
                             // Always redirect and show success (regardless of email success)
-                            $debug_info .= 'About to redirect...';
-                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
-                            exit;
+                            $debug_info .= 'Processing completed. ';
+                            // Temporarily commented out for debugging: wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                            // exit;
+                            $form_submitted = true; // Show success message without redirect
                         } else {
                             $debug_info .= 'Validation errors: ' . implode(', ', $form_errors) . '. ';
                         }
