@@ -19,22 +19,22 @@ get_header();
     <div class="container">
         <div class="founder-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 0 auto;">
             <div style="text-align: center;">
-                <div style="width: 180px; height: 180px; background: linear-gradient(135deg, #E0F2FE, #BAE6FD); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 4rem;">
-                    👤
+                <div style="width: 180px; height: 180px; background: linear-gradient(135deg, #F59E0B, #FBBF24); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 4rem;">
+                    👩‍💼
                 </div>
-                <h3 style="margin-bottom: 0.5rem; color: #0F172A;">Founder & Enrolled Agent</h3>
-                <p style="color: #0EA5E9; font-weight: 600; margin: 0;">IRS Enrolled Agent (EA)</p>
+                <h3 style="margin-bottom: 0.5rem; color: #0F172A;">Bukola Olaleye, EA</h3>
+                <p style="color: #0EA5E9; font-weight: 600; margin: 0;">Founder, SASLLC</p>
             </div>
             <div>
                 <h2 style="margin-bottom: 1.5rem;">Meet Our Founder</h2>
-                <p style="font-size: 1.125rem; line-height: 1.8;">
-                    Simplified Accounting Solutions, LLC was founded by an IRS Enrolled Agent with years of hands-on experience in accounting and tax resolution. Our founder has dedicated their career to helping individuals and businesses navigate complex tax situations and resolve issues with the IRS.
+                <p style="font-size: 1.125rem; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem;">
+                    "A passion for helping people achieve financial freedom—that's what drives <strong>Bukola Olaleye</strong> every day."
                 </p>
                 <p style="font-size: 1.125rem; line-height: 1.8;">
-                    As an Enrolled Agent—the highest credential awarded by the IRS—our founder holds unlimited practice rights to represent taxpayers before the IRS. This means we can handle audits, collections, appeals, and all other matters on your behalf.
+                    As an Enrolled Agent, Accountant, and Financial Advisor, she combines deep financial expertise with a gift for simplifying the complex. With an Associate Degree in Accountancy and Finance, a BSc in Management and Accounting, and two Master of Business Administration (MBA) degrees, Bukola leads SAS LLC with a clear mission: to make taxes, accounting, and financial decisions less overwhelming—and more empowering.
                 </p>
                 <p style="font-size: 1.125rem; line-height: 1.8;">
-                    With extensive experience working directly with the IRS, our founder understands exactly how the agency operates and what it takes to achieve favorable outcomes for clients. This insider knowledge, combined with a genuine passion for helping people resolve their tax problems, is the foundation of everything we do.
+                    From tax preparation and IRS solutions to business consulting and payroll, she helps individuals and business owners stay compliant, save more, and grow confidently—without the stress.
                 </p>
             </div>
         </div>
