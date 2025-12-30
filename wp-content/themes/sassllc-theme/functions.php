@@ -3,6 +3,34 @@
  * Theme Functions
  */
 
+// SMTP Email Configuration
+function sassllc_configure_smtp_mailer($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.gmail.com';
+    $phpmailer->Port = 587;
+    $phpmailer->SMTPSecure = 'tls';
+    $phpmailer->SMTPAuth = true;
+    
+    // Replace 'YOUR_GMAIL_APP_PASSWORD' with actual Gmail app password
+    $phpmailer->Username = 'ola@wecaremn.org'; // Your Gmail address
+    $phpmailer->Password = 'YOUR_GMAIL_APP_PASSWORD'; // Replace with actual app password
+    
+    $phpmailer->From = 'ola@wecaremn.org';
+    $phpmailer->FromName = get_bloginfo('name') . ' Contact Form';
+}
+add_action('phpmailer_init', 'sassllc_configure_smtp_mailer');
+
+// Override wp_mail from address
+function sassllc_mail_from($email) {
+    return 'ola@wecaremn.org';
+}
+add_filter('wp_mail_from', 'sassllc_mail_from');
+
+function sassllc_mail_from_name($name) {
+    return get_bloginfo('name') . ' Contact Form';
+}
+add_filter('wp_mail_from_name', 'sassllc_mail_from_name');
+
 // Theme Setup
 function sassllc_theme_setup() {
     add_theme_support('title-tag');

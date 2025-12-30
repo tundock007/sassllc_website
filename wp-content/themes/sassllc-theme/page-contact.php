@@ -183,15 +183,12 @@ get_header();
                                 'Content-Type: text/plain; charset=UTF-8'
                             );
                             
-                            // Send email (will work if server has mail configured, otherwise fails silently)
+                            // Send email (will work with SMTP configuration)
                             $email_sent = wp_mail($to, $email_subject, $email_body, $headers);
-                            $debug_info .= $email_sent ? 'Email sent successfully. ' : 'Email sending failed. ';
                             
-                            // Always redirect and show success (regardless of email success)
-                            $debug_info .= 'Processing completed. ';
-                            // Temporarily commented out for debugging: wp_redirect(add_query_arg('message', 'sent', get_permalink()));
-                            // exit;
-                            $form_submitted = true; // Show success message without redirect
+                            // Redirect and show success
+                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                            exit;
                         } else {
                             $debug_info .= 'Validation errors: ' . implode(', ', $form_errors) . '. ';
                         }
@@ -224,11 +221,7 @@ get_header();
                     </div>
                 <?php endif; ?>
                 
-                <?php if (!empty($debug_info)): ?>
-                    <div style="background: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #ffeaa7;">
-                        <strong>Debug Info:</strong> <?php echo esc_html($debug_info); ?>
-                    </div>
-                <?php endif; ?>
+
                 
                 <form method="post" action="" class="contact-form" id="contact-form">
                     <?php wp_nonce_field('contact_form_action', 'contact_form_nonce'); ?>
