@@ -88,3 +88,78 @@ function sassllc_get_company_info($key = '') {
     
     return $info;
 }
+
+// Contact Form Handler
+function sassllc_handle_contact_form() {
+    if ($_POST && isset($_POST['contact_form_submit'])) {
+        // Sanitize form data
+        $first_name = sanitize_text_field($_POST['first_name']);
+        $last_name = sanitize_text_field($_POST['last_name']);
+        $email = sanitize_email($_POST['email']);
+        $phone = sanitize_text_field($_POST['phone']);
+        $subject = sanitize_text_field($_POST['subject']);
+        $message = sanitize_textarea_field($_POST['message']);
+        $contact_method = sanitize_text_field($_POST['contact_method']);
+        
+        // Validate required fields
+        $errors = array();
+        if (empty($first_name)) $errors[] = 'First name is required.';
+        if (empty($last_name)) $errors[] = 'Last name is required.';
+        if (empty($email) || !is_email($email)) $errors[] = 'Valid email address is required.';
+        if (empty($message)) $errors[] = 'Message is required.';
+        
+        if (empty($errors)) {
+            // Prepare email
+            $to = get_option('admin_email'); // WordPress admin email
+            $email_subject = 'New Contact Form Submission from ' . $first_name . ' ' . $last_name;
+            
+            $email_body = "New contact form submission from your website:\n\n";
+            $email_body .= "Name: {$first_name} {$last_name}\n";
+            $email_body .= "Email: {$email}\n";
+            $email_body .= "Phone: {$phone}\n";
+            $email_body .= "Subject: {$subject}\n";
+            $email_body .= "Preferred Contact: {$contact_method}\n\n";
+            $email_body .= "Message:\n{$message}\n\n";
+            $email_body .= "---\n";
+            $email_body .= "Submitted on: " . current_time('mysql') . "\n";
+            $email_body .= "From IP: " . $_SERVER['REMOTE_ADDR'];
+            
+            $headers = array(
+                'Content-Type: text/plain; charset=UTF-8',
+                'From: ' . get_bloginfo('name') . ' <noreply@' . $_SERVER['HTTP_HOST'] . '>',
+                'Reply-To: ' . $email
+            );
+            
+            // Send email
+            if (wp_mail($to, $email_subject, $email_body, $headers)) {
+                // Success - redirect to prevent resubmission
+                wp_redirect(add_query_arg('contact_sent', '1', wp_get_referer()));
+                exit;
+            } else {
+                // Email failed
+                wp_redirect(add_query_arg('contact_error', '1', wp_get_referer()));
+                exit;
+            }
+        } else {
+            // Validation errors
+            wp_redirect(add_query_arg('contact_error', '1', wp_get_referer()));
+            exit;
+        }
+    }
+}
+add_action('init', 'sassllc_handle_contact_form');
+
+// Display contact form messages
+function sassllc_contact_form_messages() {
+    if (isset($_GET['contact_sent'])) {
+        echo '<div class="contact-message success" style="background: #d4edda; color: #155724; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #c3e6cb;">
+                <strong>Thank you!</strong> Your message has been sent successfully. We\'ll get back to you within 24 hours.
+              </div>';
+    }
+    
+    if (isset($_GET['contact_error'])) {
+        echo '<div class="contact-message error" style="background: #f8d7da; color: #721c24; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #f5c6cb;">
+                <strong>Error:</strong> There was a problem sending your message. Please try again or contact us directly.
+              </div>';
+    }
+}

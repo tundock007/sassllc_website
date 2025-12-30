@@ -73,7 +73,10 @@ get_header();
             <!-- Contact Form -->
             <div>
                 <h2>Send Us a Message</h2>
-                <form class="contact-form" action="#" method="POST">
+                
+                <?php sassllc_contact_form_messages(); ?>
+                
+                <form class="contact-form" action="" method="POST">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <input type="text" name="first_name" placeholder="First Name *" required>
                         <input type="text" name="last_name" placeholder="Last Name *" required>
@@ -104,6 +107,8 @@ get_header();
                             <input type="radio" name="contact_method" value="phone"> Phone
                         </label>
                     </div>
+                    
+                    <input type="hidden" name="contact_form_submit" value="1">
                     
                     <button type="submit" class="btn btn-purple" style="width: 100%;">Send Message</button>
                     
