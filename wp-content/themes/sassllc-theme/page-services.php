@@ -153,26 +153,26 @@ get_header();
 <section class="hero" style="padding: 4rem 0;">
     <div class="container">
         <h1>Professional Accounting Services</h1>
-        <p>Comprehensive financial solutions for individuals and businesses. From business formation and registration to bookkeeping and complex tax strategies, we've got you covered.</p>
+        <p>Comprehensive financial solutions for individuals and businesses. From business formation and registration to accounting and complex tax strategies, we've got you covered.</p>
     </div>
 </section>
 
-<!-- Accounting & Bookkeeping Services -->
+<!-- Accounting Services -->
 <section id="accounting" style="padding: 4rem 0;">
     <div class="container">
         <div class="section-header">
-            <h2>📚 Accounting & Bookkeeping Services</h2>
+            <h2>📚 Accounting Services</h2>
             <h3 style="color: var(--primary-color); font-weight: 500;">Complete Financial Management for Your Business</h3>
-            <p>Accurate bookkeeping and accounting are the foundation of every successful business. Our comprehensive accounting services ensure your financial records are always up-to-date, organized, and provide the insights you need for strategic decision-making.</p>
+            <p>Accurate accounting is the foundation of every successful business. Our comprehensive accounting services ensure your financial records are always up-to-date, organized, and provide the insights you need for strategic decision-making.</p>
         </div>
         
         <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             <div class="service-card">
-                <h4>📊 Bookkeeping Services</h4>
+                <h4>📊 Account Management Services</h4>
                 <ul style="margin-top: 1rem;">
                     <li>Expense categorization</li>
                     <li>Bank & credit card reconciliation</li>
-                    <li>Monthly bookkeeping maintenance</li>
+                    <li>Monthly financial maintenance</li>
                     <li>Accounts payable management</li>
                     <li>Accounts receivable management</li>
                 </ul>
@@ -203,7 +203,7 @@ get_header();
             <div class="service-card">
                 <h4>🔧 General Ledger Cleanup</h4>
                 <ul style="margin-top: 1rem;">
-                    <li>Historical bookkeeping cleanup</li>
+                    <li>Historical financial cleanup</li>
                     <li>Error correction</li>
                     <li>Account reclassification</li>
                     <li>Bringing books up to date</li>
@@ -589,7 +589,7 @@ get_header();
         <div class="full-service-grid" style="margin-top: 2.5rem;">
             <div class="full-service-item">
                 <div class="icon">📊</div>
-                <h4>All Bookkeeping Services</h4>
+                <h4>All Accounting Services</h4>
             </div>
             <div class="full-service-item">
                 <div class="icon">📈</div>

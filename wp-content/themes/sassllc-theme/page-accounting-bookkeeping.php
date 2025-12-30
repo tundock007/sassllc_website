@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Accounting & Bookkeeping Services
+ * Template Name: Accounting Services
  */
 
 get_header();
@@ -51,8 +51,8 @@ get_header();
 <!-- Hero Section -->
 <section class="hero" style="padding: 3rem 0;">
     <div class="container">
-        <h1>Accounting & Bookkeeping Services</h1>
-        <p>Complete Financial Management for Your Business - Accurate bookkeeping and accounting are the foundation of every successful business. Our comprehensive services ensure your financial records are always up-to-date and organized.</p>
+        <h1>Accounting Services</h1>
+        <p>Complete Financial Management for Your Business - Accurate accounting is the foundation of every successful business. Our comprehensive services ensure your financial records are always up-to-date and organized.</p>
     </div>
 </section>
 
@@ -61,13 +61,13 @@ get_header();
     <div class="container">
         <div class="services-grid">
             <div class="service-card">
-                <h4>Bookkeeping Services</h4>
+                <h4>Account Management Services</h4>
                 <ul>
-                    <li>Expense categorization</li>
                     <li>Bank & credit card reconciliation</li>
-                    <li>Monthly bookkeeping maintenance</li>
+                    <li>Monthly financial maintenance</li>
                     <li>Accounts payable management</li>
                     <li>Accounts receivable management</li>
+                    <li>Transaction categorization</li>
                 </ul>
             </div>
             
@@ -96,10 +96,10 @@ get_header();
             <div class="service-card">
                 <h4>General Ledger Cleanup</h4>
                 <ul>
-                    <li>Historical bookkeeping cleanup</li>
+                    <li>Historical financial cleanup</li>
                     <li>Error correction</li>
                     <li>Account reclassification</li>
-                    <li>Bringing books up to date</li>
+                    <li>Bringing records up to date</li>
                     <li>Multi-year catch-up services</li>
                 </ul>
             </div>
@@ -144,7 +144,7 @@ get_header();
         </div>
         
         <div style="margin-top: 3rem; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 2rem; border-radius: 12px; color: white; text-align: center;">
-            <h3 style="color: white;">Ready to Get Your Books in Order?</h3>
+            <h3 style="color: white;">Ready to Get Your Finances in Order?</h3>
             <p style="color: rgba(255,255,255,0.9);">Let us handle your accounting while you focus on growing your business.</p>
             <a href="<?php echo home_url('/contact'); ?>" class="btn" style="margin-top: 1rem; background: white; color: var(--primary-color);">
                 Schedule Free Consultation

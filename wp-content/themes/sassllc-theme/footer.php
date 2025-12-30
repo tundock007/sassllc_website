@@ -7,14 +7,14 @@
                 <h3><?php echo sassllc_get_company_info('name'); ?></h3>
                 <p><?php echo sassllc_get_company_info('tagline'); ?></p>
                 <p style="margin-top: 1rem;">
-                    Providing professional accounting, tax preparation, and bookkeeping services to individuals and businesses.
+                    Providing professional accounting, tax preparation, and financial services to individuals and businesses.
                 </p>
             </div>
             
             <div class="footer-column">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="<?php echo home_url('/services'); ?>#bookkeeping">Bookkeeping</a></li>
+                    <li><a href="<?php echo home_url('/services'); ?>#accounting">Accounting</a></li>
                     <li><a href="<?php echo home_url('/services'); ?>#tax-prep">Tax Preparation</a></li>
                     <li><a href="<?php echo home_url('/services'); ?>#tax-planning">Tax Planning</a></li>
                     <li><a href="<?php echo home_url('/services'); ?>#audit-defense">Audit Defense</a></li>

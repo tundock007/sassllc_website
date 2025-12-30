@@ -124,7 +124,7 @@ get_header();
             <div class="feature-card">
                 <div class="feature-icon">👨‍💼</div>
                 <h3>Experienced Professionals</h3>
-                <p>Our team brings years of experience in tax preparation, bookkeeping, and IRS representation. We've seen it all and know how to handle complex situations.</p>
+                <p>Our team brings years of experience in tax preparation, accounting, and IRS representation. We've seen it all and know how to handle complex situations.</p>
             </div>
             
             <div class="feature-card">

@@ -383,7 +383,7 @@ get_header();
         </h1>
         
         <p>
-            Simplified Accounting Solutions delivers professional bookkeeping, tax preparation, and IRS representation services. We handle the numbers so you can focus on what matters most.
+            Simplified Accounting Solutions delivers professional accounting, tax preparation, and IRS representation services. We handle the numbers so you can focus on what matters most.
         </p>
         
         <div class="hero-buttons">
@@ -459,8 +459,8 @@ get_header();
         
         <div class="services-grid">
             <div class="service-card-modern">
-                <h3><span>📚</span> Bookkeeping Services</h3>
-                <p>Maintain accurate financial records with our comprehensive bookkeeping solutions. We handle accounts payable, accounts receivable, bank reconciliation, and financial statement preparation.</p>
+                <h3><span>📚</span> Accounting Services</h3>
+                <p>Maintain accurate financial records with our comprehensive accounting solutions. We handle accounts payable, accounts receivable, bank reconciliation, and financial statement preparation.</p>
                 <ul>
                     <li>Accounts Payable & Receivable</li>
                     <li>Bank Reconciliation</li>

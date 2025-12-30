@@ -27,7 +27,7 @@
                     <a href="<?php echo home_url('/services'); ?>" <?php if(is_page(array('services', 'business-registration', 'accounting-bookkeeping', 'tax-preparation', 'irs-resolution'))) echo 'class="active"'; ?>>Services ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo home_url('/services/business-registration'); ?>">Business Registration</a></li>
-                        <li><a href="<?php echo home_url('/services/accounting-bookkeeping'); ?>">Accounting & Bookkeeping</a></li>
+                        <li><a href="<?php echo home_url('/services/accounting-bookkeeping'); ?>">Accounting Services</a></li>
                         <li><a href="<?php echo home_url('/services/tax-preparation'); ?>">Tax Preparation</a></li>
                         <li><a href="<?php echo home_url('/services/irs-resolution'); ?>">IRS Resolution</a></li>
                     </ul>
