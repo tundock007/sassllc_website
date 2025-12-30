@@ -378,8 +378,8 @@ get_header();
         <span class="hero-badge"><?php echo sassllc_get_company_info('tagline'); ?></span>
         
         <h1>
-            Expert Accounting Services<br>
-            For Your <span class="highlight">Success</span>
+            Your Success Starts Here:<br>
+            <span class="highlight">Expert Tax Preparation, IRS Solutions & Business Services You Can Trust</span>
         </h1>
         
         <p>
