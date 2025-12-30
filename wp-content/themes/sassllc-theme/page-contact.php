@@ -84,8 +84,10 @@ get_header();
                     $debug_info = 'Form submitted via POST. ';
                     if (isset($_POST['contact_form_submit'])) {
                         $debug_info .= 'Submit button detected. ';
+                    } elseif (isset($_POST['contact_form_nonce'])) {
+                        $debug_info .= 'Form nonce detected (fallback). ';
                     } else {
-                        $debug_info .= 'Submit button NOT detected. ';
+                        $debug_info .= 'No form detection method found. ';
                     }
                     $debug_info .= 'POST data keys: ' . implode(', ', array_keys($_POST)) . '. ';
                 }
@@ -95,7 +97,7 @@ get_header();
                     $form_submitted = true;
                 }
                 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submit'])) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['contact_form_submit']) || isset($_POST['contact_form_nonce']))) {
                     $debug_info .= 'Processing form submission. ';
                     
                     if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
@@ -240,7 +242,7 @@ get_header();
                         <textarea id="contact_message" name="contact_message" rows="6" required><?php echo isset($_POST['contact_message']) ? esc_textarea($_POST['contact_message']) : ''; ?></textarea>
                     </div>
                     
-                    <button type="submit" name="contact_form_submit" class="btn btn-primary" id="contact-submit-btn">
+                    <button type="submit" name="contact_form_submit" value="1" class="btn btn-primary" id="contact-submit-btn">
                         Send Message
                     </button>
                 </form>
