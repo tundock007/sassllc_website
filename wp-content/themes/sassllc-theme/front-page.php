@@ -57,7 +57,7 @@ get_header();
 }
 
 .hero-modern h1 {
-    font-size: 4.5rem;
+    font-size: 3.125rem;
     color: white;
     margin-bottom: 1.5rem;
     background: none;
