@@ -1,5 +1,9 @@
 FROM wordpress:6.4-php8.2-apache
 
+# Disable WordPress auto-updates
+ENV AUTOMATIC_UPDATER_DISABLED=true
+ENV WP_AUTO_UPDATE_CORE=false
+
 # Copy custom theme
 COPY wp-content/themes/sassllc-theme /usr/src/wordpress/wp-content/themes/sassllc-theme
 

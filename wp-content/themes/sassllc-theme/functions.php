@@ -16,6 +16,30 @@ function sassllc_theme_setup() {
 }
 add_action('after_setup_theme', 'sassllc_theme_setup');
 
+// Disable WordPress update notifications and nags
+add_filter('pre_site_transient_update_core', '__return_null');
+add_filter('pre_site_transient_update_plugins', '__return_null');
+add_filter('pre_site_transient_update_themes', '__return_null');
+remove_action('admin_notices', 'update_nag', 3);
+remove_action('network_admin_notices', 'update_nag', 3);
+
+// Clean up Contact Form 7 if it's in the database but files don't exist
+function sassllc_cleanup_missing_plugins() {
+    $active_plugins = get_option('active_plugins');
+    if ($active_plugins) {
+        $plugin_files_exist = array();
+        foreach ($active_plugins as $plugin) {
+            if (file_exists(WP_PLUGIN_DIR . '/' . $plugin)) {
+                $plugin_files_exist[] = $plugin;
+            }
+        }
+        if (count($plugin_files_exist) !== count($active_plugins)) {
+            update_option('active_plugins', $plugin_files_exist);
+        }
+    }
+}
+add_action('admin_init', 'sassllc_cleanup_missing_plugins');
+
 // Enqueue Scripts and Styles
 function sassllc_enqueue_scripts() {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null);
