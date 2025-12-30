@@ -100,12 +100,14 @@ get_header();
                     
                     <div style="margin-bottom: 1rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Preferred Contact Method</label>
-                        <label style="margin-right: 2rem; cursor: pointer;">
-                            <input type="radio" name="contact_method" value="email" checked> Email
-                        </label>
-                        <label style="cursor: pointer;">
-                            <input type="radio" name="contact_method" value="phone"> Phone
-                        </label>
+                        <div style="display: flex; gap: 2rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="contact_method" value="email" checked> Email
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="contact_method" value="phone"> Phone
+                            </label>
+                        </div>
                     </div>
                     
                     <input type="hidden" name="contact_form_submit" value="1">
