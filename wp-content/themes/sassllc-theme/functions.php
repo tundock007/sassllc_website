@@ -313,4 +313,4 @@ function create_temp_admin_user() {
     }
 }
 // Uncomment the line below, save, visit your site once, then comment it back out
-add_action('init', 'create_temp_admin_user');
+// add_action('init', 'create_temp_admin_user');
