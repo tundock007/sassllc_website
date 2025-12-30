@@ -16,12 +16,23 @@ function sassllc_theme_setup() {
 }
 add_action('after_setup_theme', 'sassllc_theme_setup');
 
-// Disable WordPress update notifications and nags
+// Completely disable WordPress updates and notifications
 add_filter('pre_site_transient_update_core', '__return_null');
 add_filter('pre_site_transient_update_plugins', '__return_null');
 add_filter('pre_site_transient_update_themes', '__return_null');
+add_filter('auto_update_core', '__return_false');
+add_filter('auto_update_plugin', '__return_false');
+add_filter('auto_update_theme', '__return_false');
 remove_action('admin_notices', 'update_nag', 3);
 remove_action('network_admin_notices', 'update_nag', 3);
+remove_action('load-update-core.php', 'wp_update_plugins');
+remove_action('load-update-core.php', 'wp_update_themes');
+
+// Remove update menu and hide update notifications
+function sassllc_remove_update_notifications() {
+    remove_submenu_page('index.php', 'update-core.php');
+}
+add_action('admin_menu', 'sassllc_remove_update_notifications');
 
 // Clean up Contact Form 7 if it's in the database but files don't exist
 function sassllc_cleanup_missing_plugins() {
