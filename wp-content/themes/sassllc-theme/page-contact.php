@@ -222,17 +222,43 @@ get_header();
                 </form>
                 
                 <script>
+                console.log('Contact form script loaded');
+                
                 document.addEventListener('DOMContentLoaded', function() {
+                    console.log('DOM loaded, initializing contact form');
+                    
                     const form = document.getElementById('contact-form');
                     const submitBtn = document.getElementById('contact-submit-btn');
                     
-                    form.addEventListener('submit', function() {
-                        submitBtn.disabled = true;
-                        submitBtn.textContent = 'Sending...';
-                        console.log('Form submitted');
-                        return true; // Allow form to submit
-                    });
+                    console.log('Form element:', form);
+                    console.log('Submit button:', submitBtn);
+                    
+                    if (form && submitBtn) {
+                        console.log('Form and button found, adding event listener');
+                        
+                        form.addEventListener('submit', function(e) {
+                            console.log('Form submit event triggered');
+                            submitBtn.disabled = true;
+                            submitBtn.textContent = 'Sending...';
+                            console.log('Button disabled, form submitting');
+                            return true; // Allow form to submit
+                        });
+                        
+                        // Test button click
+                        submitBtn.addEventListener('click', function(e) {
+                            console.log('Submit button clicked');
+                        });
+                        
+                        console.log('Event listeners added successfully');
+                    } else {
+                        console.error('Form or submit button not found!');
+                        console.error('Form:', form);
+                        console.error('Submit button:', submitBtn);
+                    }
                 });
+                
+                // Additional debugging - check if script runs at all
+                console.log('Script end reached');
                 </script>
                 
             </div>
