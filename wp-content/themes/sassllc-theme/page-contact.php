@@ -78,6 +78,17 @@ get_header();
                 $form_submitted = false;
                 $form_errors = array();
                 
+                // Debug: Check if form was submitted
+                $debug_info = '';
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $debug_info = 'Form submitted. ';
+                    if (isset($_POST['contact_form_submit'])) {
+                        $debug_info .= 'Submit button detected. ';
+                    } else {
+                        $debug_info .= 'Submit button NOT detected. ';
+                    }
+                }
+                
                 // Check if we're showing a success message from redirect
                 if (isset($_GET['message']) && $_GET['message'] === 'sent') {
                     $form_submitted = true;
@@ -164,7 +175,13 @@ get_header();
                     </div>
                 <?php endif; ?>
                 
-                <form method="post" action="" class="contact-form">
+                <?php if (!empty($debug_info) && WP_DEBUG): ?>
+                    <div style="background: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #ffeaa7;">
+                        <strong>Debug:</strong> <?php echo esc_html($debug_info); ?>
+                    </div>
+                <?php endif; ?>
+                
+                <form method="post" action="" class="contact-form" id="contact-form">
                     <?php wp_nonce_field('contact_form_action', 'contact_form_nonce'); ?>
                     
                     <div class="form-group">
@@ -200,22 +217,20 @@ get_header();
                     </div>
                     
                     <button type="submit" name="contact_form_submit" class="btn btn-primary" id="contact-submit-btn">
-                        <span class="btn-text">Send Message</span>
-                        <span class="btn-loading" style="display: none;">Sending...</span>
+                        Send Message
                     </button>
                 </form>
                 
                 <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    const form = document.querySelector('.contact-form');
+                    const form = document.getElementById('contact-form');
                     const submitBtn = document.getElementById('contact-submit-btn');
-                    const btnText = submitBtn.querySelector('.btn-text');
-                    const btnLoading = submitBtn.querySelector('.btn-loading');
                     
                     form.addEventListener('submit', function() {
                         submitBtn.disabled = true;
-                        btnText.style.display = 'none';
-                        btnLoading.style.display = 'inline';
+                        submitBtn.textContent = 'Sending...';
+                        console.log('Form submitted');
+                        return true; // Allow form to submit
                     });
                 });
                 </script>
