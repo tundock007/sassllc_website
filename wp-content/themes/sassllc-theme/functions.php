@@ -34,6 +34,24 @@ function sassllc_remove_update_notifications() {
 }
 add_action('admin_menu', 'sassllc_remove_update_notifications');
 
+// Block direct access to update pages
+function sassllc_block_update_pages() {
+    global $pagenow;
+    if ($pagenow === 'update-core.php' || $pagenow === 'update.php') {
+        wp_redirect(admin_url());
+        exit;
+    }
+}
+add_action('admin_init', 'sassllc_block_update_pages');
+
+// Remove all update-related admin notices
+function sassllc_remove_update_notices() {
+    remove_all_actions('admin_notices');
+    remove_all_actions('network_admin_notices');
+    remove_all_actions('all_admin_notices');
+}
+add_action('admin_head', 'sassllc_remove_update_notices', 1);
+
 // Clean up Contact Form 7 if it's in the database but files don't exist
 function sassllc_cleanup_missing_plugins() {
     $active_plugins = get_option('active_plugins');
