@@ -194,15 +194,6 @@ get_header();
                         }
                 }
                 ?>
-                            wp_mail($to, $email_subject, $email_body, $headers);
-                            
-                            // Always redirect and show success (regardless of email success)
-                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
-                            exit;
-                        }
-                    }
-                }
-                ?>
                 
                 <?php if ($form_submitted): ?>
                     <div style="background: #d4edda; color: #155724; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #c3e6cb;">
