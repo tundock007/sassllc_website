@@ -16,6 +16,26 @@ function sassllc_theme_setup() {
 }
 add_action('after_setup_theme', 'sassllc_theme_setup');
 
+// Register custom post type for contact form submissions
+function sassllc_register_contact_submissions() {
+    register_post_type('contact_submission', array(
+        'labels' => array(
+            'name' => 'Contact Submissions',
+            'singular_name' => 'Contact Submission',
+            'menu_name' => 'Contact Forms',
+            'all_items' => 'All Submissions',
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-email',
+        'capability_type' => 'post',
+        'supports' => array('title', 'editor'),
+        'menu_position' => 25,
+    ));
+}
+add_action('init', 'sassllc_register_contact_submissions');
+
 // Clean up Contact Form 7 if it's in the database but files don't exist
 function sassllc_cleanup_missing_plugins() {
     $active_plugins = get_option('active_plugins');

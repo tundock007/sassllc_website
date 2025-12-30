@@ -102,6 +102,24 @@ get_header();
                         if (empty($message)) $form_errors[] = 'Message is required.';
                         
                         if (empty($form_errors)) {
+                            // Save submission to database
+                            $submission_data = array(
+                                'post_title' => 'Contact Form: ' . $name . ' - ' . date('Y-m-d H:i:s'),
+                                'post_content' => "Name: $name\nEmail: $email\nPhone: $phone\nSubject: $subject\n\nMessage:\n$message",
+                                'post_status' => 'private',
+                                'post_type' => 'contact_submission',
+                                'meta_input' => array(
+                                    'contact_name' => $name,
+                                    'contact_email' => $email,
+                                    'contact_phone' => $phone,
+                                    'contact_subject' => $subject,
+                                    'contact_message' => $message,
+                                )
+                            );
+                            
+                            $post_id = wp_insert_post($submission_data);
+                            
+                            // Also try to send email (but don't fail if it doesn't work)
                             $to = sassllc_get_company_info('email');
                             $email_subject = 'Contact Form: ' . $subject;
                             $email_body = "Name: $name\n";
@@ -115,13 +133,11 @@ get_header();
                                 'Content-Type: text/plain; charset=UTF-8'
                             );
                             
-                            if (wp_mail($to, $email_subject, $email_body, $headers)) {
-                                // Redirect to prevent form resubmission
-                                wp_redirect(add_query_arg('message', 'sent', get_permalink()));
-                                exit;
-                            } else {
-                                $form_errors[] = 'Failed to send message. Please try again or contact us directly.';
-                            }
+                            wp_mail($to, $email_subject, $email_body, $headers);
+                            
+                            // Always redirect regardless of email success
+                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                            exit;
                         }
                     }
                 }
