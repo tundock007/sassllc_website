@@ -120,15 +120,25 @@ get_header();
                         $subject = sanitize_text_field($_POST['contact_subject'] ?? '');
                         $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
                         
-                        $debug_info .= "Data: name='$name', email='$email', subject='$subject'. ";
+                        $debug_info .= "Data extracted: name='$name', email='$email', subject='$subject', message_length=" . strlen($message) . ". ";
                         
-                        if (empty($name)) $form_errors[] = 'Name is required.';
+                        if (empty($name)) {
+                            $form_errors[] = 'Name is required.';
+                            $debug_info .= 'Name validation failed. ';
+                        }
                         if (empty($email)) {
                             $form_errors[] = 'Email is required.';
+                            $debug_info .= 'Email empty validation failed. ';
                         } elseif (!is_email($email)) {
                             $form_errors[] = 'Please enter a valid email address.';
+                            $debug_info .= 'Email format validation failed. ';
                         }
-                        if (empty($message)) $form_errors[] = 'Message is required.';
+                        if (empty($message)) {
+                            $form_errors[] = 'Message is required.';
+                            $debug_info .= 'Message validation failed. ';
+                        }
+                        
+                        $debug_info .= 'Validation complete. Error count: ' . count($form_errors) . '. ';
                         
                         if (empty($form_errors)) {
                             $debug_info .= 'No validation errors, saving to database. ';
