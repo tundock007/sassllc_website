@@ -108,6 +108,6 @@ Simplified Accounting Solutions, LLC specializes in a variety of accounting serv
 
 **Text:** Have questions? We're here to help.
 **Phone:** (301) 804-8333
-**Email:** info@sassllc.com
+**Email:** info@simplifiedacctsolutions.com
 **Location:** Waldorf, MD
 **Button:** Contact Us

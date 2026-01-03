@@ -118,9 +118,23 @@ get_header();
                     $phone = sanitize_text_field($_POST['contact_phone'] ?? '');
                     $subject = sanitize_text_field($_POST['contact_subject'] ?? '');
                     $message = sanitize_textarea_field($_POST['contact_message'] ?? '');
-                    
-                    $debug_info .= "Data extracted: name='$name', email='$email', subject='$subject', message_length=" . strlen($message) . ". ";
-                    
+                        $honeypot = $_POST['website_url'] ?? ''; // Honeypot field
+                        
+                        // Anti-spam: Check honeypot field
+                        if (!empty($honeypot)) {
+                            // This is likely spam - honeypot field should be empty
+                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                            exit; // Redirect but don't save or send email
+                        }
+                        
+                        // Anti-spam: Check submission timing (minimum 3 seconds)
+                        $form_start_time = intval($_POST['form_start_time'] ?? 0);
+                        $time_elapsed = time() - $form_start_time;
+                        if ($time_elapsed < 3) {
+                            // Submitted too quickly - likely spam
+                            wp_redirect(add_query_arg('message', 'sent', get_permalink()));
+                            exit; // Redirect but don't save or send email
+                        }
                     if (empty($name)) {
                         $form_errors[] = 'Name is required.';
                         $debug_info .= 'Name validation failed. ';
@@ -216,6 +230,8 @@ get_header();
                 
                 <form method="post" action="" class="contact-form" id="contact-form">
                     <?php wp_nonce_field('contact_form_action', 'contact_form_nonce'); ?>
+                    <!-- Time-based spam protection -->
+                    <input type="hidden" name="form_start_time" value="<?php echo time(); ?>">
                     
                     <div class="form-group">
                         <label for="contact_name">Your Name *</label>
@@ -247,6 +263,12 @@ get_header();
                     <div class="form-group">
                         <label for="contact_message">Your Message *</label>
                         <textarea id="contact_message" name="contact_message" rows="6" required><?php echo isset($_POST['contact_message']) ? esc_textarea($_POST['contact_message']) : ''; ?></textarea>
+                    </div>
+                    
+                    <!-- Anti-spam honeypot field (hidden from users) -->
+                    <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                        <label for="website_url">Website URL (leave blank)</label>
+                        <input type="text" id="website_url" name="website_url" value="" tabindex="-1" autocomplete="off">
                     </div>
                     
                     <button type="submit" name="contact_form_submit" value="1" class="btn btn-primary" id="contact-submit-btn">
