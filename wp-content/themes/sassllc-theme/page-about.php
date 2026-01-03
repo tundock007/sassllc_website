@@ -22,16 +22,16 @@ get_header();
                 <div style="width: 180px; height: 180px; background: linear-gradient(135deg, #F59E0B, #FBBF24); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 4rem;">
                     👩‍💼
                 </div>
-                <h3 style="margin-bottom: 0.5rem; color: #0F172A;">Bukola Olaleye, EA</h3>
+                <h3 style="margin-bottom: 0.5rem; color: #0F172A;">Mary Olaleye, EA</h3>
                 <p style="color: #0EA5E9; font-weight: 600; margin: 0;">Founder, SASLLC</p>
             </div>
             <div>
                 <h2 style="margin-bottom: 1.5rem;">Meet Our Founder</h2>
                 <p style="font-size: 1.125rem; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem;">
-                    "A passion for helping people achieve financial freedom—that's what drives <strong>Bukola Olaleye</strong> every day."
+                    "A passion for helping people achieve financial freedom—that's what drives <strong>Mary Olaleye</strong> every day."
                 </p>
                 <p style="font-size: 1.125rem; line-height: 1.8;">
-                    As an Enrolled Agent, Accountant, and Financial Advisor, she combines deep financial expertise with a gift for simplifying the complex. With an Associate Degree in Accountancy and Finance, a BSc in Management and Accounting, and two Master of Business Administration (MBA) degrees, Bukola leads SAS LLC with a clear mission: to make taxes, accounting, and financial decisions less overwhelming—and more empowering.
+                    As an Enrolled Agent, Accountant, and Financial Advisor, she combines deep financial expertise with a gift for simplifying the complex. With an Associate Degree in Accountancy and Finance, a BSc in Management and Accounting, and two Master of Business Administration (MBA) degrees, Mary leads SAS LLC with a clear mission: to make taxes, accounting, and financial decisions less overwhelming—and more empowering.
                 </p>
                 <p style="font-size: 1.125rem; line-height: 1.8;">
                     From tax preparation and IRS solutions to business consulting and payroll, she helps individuals and business owners stay compliant, save more, and grow confidently—without the stress.
