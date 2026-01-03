@@ -120,5 +120,5 @@ Ready to experience the Simplified Accounting Solutions difference? Schedule a c
 **Button:** Schedule Your Free Consultation
 
 **Phone:** (301) 804-8333
-**Email:** info@simplifiedacctsolutions.com
+**Email:** sasllc@simplifiedacctsolutions.com
 **Location:** Waldorf, MD

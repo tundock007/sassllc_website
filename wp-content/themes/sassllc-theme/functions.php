@@ -142,7 +142,7 @@ function sassllc_get_company_info($key = '') {
         'short_name' => 'SASS LLC',
         'tagline' => 'Your Voice at the IRS',
         'phone' => '(301) 804-8333',
-        'email' => 'info@simplifiedacctsolutions.com',
+        'email' => 'sasllc@simplifiedacctsolutions.com',
         'location' => 'Waldorf, MD',
         'address' => 'Waldorf, MD',
     );

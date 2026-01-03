@@ -21,7 +21,7 @@ Have questions about our services? Ready to schedule a consultation? We're here 
 📞 (301) 804-8333
 
 **Email:**
-✉️ info@simplifiedacctsolutions.com
+✉️ sasllc@simplifiedacctsolutions.com
 
 **Office Address:**
 📍 Waldorf, MD
@@ -117,7 +117,7 @@ A: Yes! We work with clients nationwide. Thanks to secure technology, we can ser
 If you've received an IRS audit notice, levy, or lien, time is of the essence. Contact us immediately for urgent assistance.
 
 **Urgent Line:** (301) 804-8333
-**Email:** info@simplifiedacctsolutions.com
+**Email:** sasllc@simplifiedacctsolutions.com
 
 *We prioritize IRS matters and will respond as quickly as possible.*
 
