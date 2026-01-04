@@ -12,17 +12,17 @@ function sassllc_configure_smtp_mailer($phpmailer) {
     $phpmailer->SMTPAuth = true;
     
     // Replace 'YOUR_GMAIL_APP_PASSWORD' with actual Gmail app password
-    $phpmailer->Username = 'tundock007@gmail.com'; // Your Gmail address
-    $phpmailer->Password = 'gczn bgoz sdxl jpgw'; // Gmail app password
+    $phpmailer->Username = 'simpleacctsolutions@gmail.com'; // Your Gmail address
+    $phpmailer->Password = 'czxp wais aadp xzbw'; // Gmail app password
     
-    $phpmailer->From = 'tundock007@gmail.com';
+    $phpmailer->From = 'simpleacctsolutions@gmail.com';
     $phpmailer->FromName = get_bloginfo('name') . ' Contact Form';
 }
 add_action('phpmailer_init', 'sassllc_configure_smtp_mailer');
 
 // Override wp_mail from address
 function sassllc_mail_from($email) {
-    return 'tundock007@gmail.com';
+    return 'simpleacctsolutions@gmail.com';
 }
 add_filter('wp_mail_from', 'sassllc_mail_from');
 

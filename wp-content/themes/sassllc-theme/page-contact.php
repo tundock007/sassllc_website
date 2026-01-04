@@ -180,7 +180,7 @@ get_header();
                             }
                             
                             // Try to send email notification
-                            $to = 'tundock007@gmail.com'; // Your email address
+                            $to = 'simpleacctsolutions@gmail.com'; // Your email address
                             $email_subject = 'Website Contact Form: ' . $subject;
                             $email_body = "You have received a new message from your website contact form:\n\n";
                             $email_body .= "Name: $name\n";
