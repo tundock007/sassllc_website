@@ -836,6 +836,15 @@ section {
     .features-grid,
     .services-grid,
     .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid,
+    .services-grid,
+    .values-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
