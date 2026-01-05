@@ -375,13 +375,13 @@ if ($testimonials->have_posts()) :
 <?php endif; ?>
 
 <!-- Submit Review Section -->
-<section style="padding: 5rem 0; background: var(--background-alt);">
+<section style="padding: 4rem 0; background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);">
     <div class="container">
-        <div style="max-width: 700px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Share Your Experience</h2>
-            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">
-                We value your feedback! Share your experience with our services and help others make informed decisions.
-            </p>
+        <div style="max-width: 650px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Share Your Experience</h2>
+                <p style="color: #6B7280; font-size: 0.9rem; margin: 0;">Help others make informed decisions about our services</p>
+            </div>
             
             <?php
             $review_submitted = false;
@@ -454,14 +454,15 @@ if ($testimonials->have_posts()) :
             ?>
             
             <?php if ($review_submitted) : ?>
-                <div style="background: #D1FAE5; color: #065F46; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #10B981; text-align: center;">
-                    <strong>Thank you for your review!</strong><br>
-                    Your testimonial has been submitted and will appear on our site after approval.
+                <div style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0); color: #065F46; padding: 1.5rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(16,185,129,0.2);">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✓</div>
+                    <strong style="font-size: 1.1rem;">Thank you for your review!</strong>
+                    <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">Your testimonial will appear after approval</p>
                 </div>
             <?php else : ?>
                 <?php if (!empty($review_errors)) : ?>
-                    <div style="background: #FEE2E2; color: #991B1B; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #DC2626;">
-                        <ul style="margin: 0; padding-left: 1.5rem;">
+                    <div style="background: #FEE2E2; color: #991B1B; padding: 1rem; border-radius: 10px; margin-bottom: 1.25rem; border-left: 4px solid #DC2626; font-size: 0.9rem;">
+                        <ul style="margin: 0; padding-left: 1.25rem;">
                             <?php foreach ($review_errors as $error) : ?>
                                 <li><?php echo esc_html($error); ?></li>
                             <?php endforeach; ?>
@@ -469,76 +470,140 @@ if ($testimonials->have_posts()) :
                     </div>
                 <?php endif; ?>
                 
-                <form method="POST" action="">
+                <form method="POST" action="" style="display: grid; gap: 1.25rem;">
                     <?php wp_nonce_field('submit_review_action', 'review_nonce'); ?>
                     
                     <!-- Honeypot field -->
                     <input type="text" name="website_url_review" style="display: none;" tabindex="-1" autocomplete="off">
                     
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Name *</label>
-                        <input type="text" name="review_name" required 
-                               style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem;"
-                               value="<?php echo isset($_POST['review_name']) ? esc_attr($_POST['review_name']) : ''; ?>">
+                    <!-- Name and Email Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #374151;">Name *</label>
+                            <input type="text" name="review_name" required 
+                                   style="width: 100%; padding: 0.7rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s;"
+                                   onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='#E5E7EB'"
+                                   value="<?php echo isset($_POST['review_name']) ? esc_attr($_POST['review_name']) : ''; ?>">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #374151;">Email *</label>
+                            <input type="email" name="review_email" required 
+                                   style="width: 100%; padding: 0.7rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s;"
+                                   onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='#E5E7EB'"
+                                   value="<?php echo isset($_POST['review_email']) ? esc_attr($_POST['review_email']) : ''; ?>">
+                        </div>
                     </div>
                     
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Email * <span style="font-weight: 400; font-size: 0.875rem; color: var(--text-light);">(Will not be displayed publicly)</span></label>
-                        <input type="email" name="review_email" required 
-                               style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem;"
-                               value="<?php echo isset($_POST['review_email']) ? esc_attr($_POST['review_email']) : ''; ?>">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Role/Business Type <span style="font-weight: 400; font-size: 0.875rem; color: var(--text-light);">(Optional)</span></label>
+                    <!-- Role -->
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #374151;">
+                            Role <span style="font-weight: 400; color: #9CA3AF; font-size: 0.85rem;">(Optional)</span>
+                        </label>
                         <input type="text" name="review_role" 
-                               placeholder="e.g., Small Business Owner, Entrepreneur"
-                               style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem;"
+                               placeholder="e.g., Small Business Owner"
+                               style="width: 100%; padding: 0.7rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s;"
+                               onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='#E5E7EB'"
                                value="<?php echo isset($_POST['review_role']) ? esc_attr($_POST['review_role']) : ''; ?>">
                     </div>
                     
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Rating *</label>
-                        <div style="display: flex; gap: 0.5rem; font-size: 2rem;">
-                            <?php for ($i = 5; $i >= 1; $i--) : ?>
-                                <label style="cursor: pointer;">
+                    <!-- Rating -->
+                    <div style="background: #F9FAFB; padding: 1.25rem; border-radius: 10px; border: 2px solid #E5E7EB;">
+                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 600; font-size: 0.9rem; color: #374151; text-align: center;">Your Rating *</label>
+                        <div id="star-rating-container" style="display: flex; justify-content: center; gap: 0.5rem; font-size: 2.5rem;">
+                            <?php for ($i = 1; $i <= 5; $i++) : ?>
+                                <label style="cursor: pointer; transition: transform 0.2s;" data-rating="<?php echo $i; ?>"
+                                       onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
                                     <input type="radio" name="review_rating" value="<?php echo $i; ?>" 
                                            <?php echo (isset($_POST['review_rating']) && $_POST['review_rating'] == $i) || (!isset($_POST['review_rating']) && $i == 5) ? 'checked' : ''; ?>
                                            style="display: none;">
-                                    <span class="star-rating" style="color: #D1D5DB;">★</span>
+                                    <span class="star-rating">★</span>
                                 </label>
                             <?php endfor; ?>
                         </div>
-                        <small style="color: var(--text-light);">Click on a star to rate (5 stars = excellent)</small>
+                        <p style="text-align: center; color: #6B7280; font-size: 0.8rem; margin: 0.5rem 0 0;">Tap to rate • 5 stars = excellent</p>
                     </div>
                     
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Review *</label>
-                        <textarea name="review_content" required rows="5"
-                                  style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem; resize: vertical;"
+                    <!-- Review Text -->
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #374151;">Your Review *</label>
+                        <textarea name="review_content" required rows="4"
+                                  style="width: 100%; padding: 0.7rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 0.95rem; resize: vertical; transition: border-color 0.2s; font-family: inherit;"
+                                  onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='#E5E7EB'"
                                   placeholder="Share your experience with our services..."><?php echo isset($_POST['review_content']) ? esc_textarea($_POST['review_content']) : ''; ?></textarea>
                     </div>
                     
-                    <button type="submit" name="submit_review" class="btn" style="width: 100%;">
+                    <button type="submit" name="submit_review" class="btn" 
+                            style="width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 600; border-radius: 8px; transition: transform 0.2s, box-shadow 0.2s;"
+                            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)'"
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
                         Submit Review
                     </button>
                     
-                    <p style="text-align: center; color: var(--text-light); font-size: 0.875rem; margin-top: 1rem;">
-                        Your review will be reviewed before being published on our site.
+                    <p style="text-align: center; color: #9CA3AF; font-size: 0.8rem; margin: -0.5rem 0 0;">
+                        🔒 Your review will be reviewed before being published
                     </p>
                 </form>
                 
                 <style>
-                    input[type="radio"]:checked + .star-rating {
-                        color: #F59E0B !important;
+                    .star-rating {
+                        color: #D1D5DB;
+                        transition: color 0.2s;
                     }
-                    input[type="radio"]:checked ~ label .star-rating {
-                        color: #F59E0B !important;
-                    }
-                    label:has(input[type="radio"]:checked) ~ label .star-rating {
-                        color: #D1D5DB !important;
+                    .star-rating.filled {
+                        color: #F59E0B;
                     }
                 </style>
+                
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const container = document.getElementById('star-rating-container');
+                    const labels = container.querySelectorAll('label');
+                    const radios = container.querySelectorAll('input[type="radio"]');
+                    
+                    function updateStars(rating) {
+                        labels.forEach(label => {
+                            const labelRating = parseInt(label.getAttribute('data-rating'));
+                            const star = label.querySelector('.star-rating');
+                            if (labelRating <= rating) {
+                                star.classList.add('filled');
+                            } else {
+                                star.classList.remove('filled');
+                            }
+                        });
+                    }
+                    
+                    // Set initial state based on checked radio
+                    radios.forEach(radio => {
+                        if (radio.checked) {
+                            updateStars(parseInt(radio.value));
+                        }
+                    });
+                    
+                    // Add click handlers
+                    labels.forEach(label => {
+                        label.addEventListener('click', function() {
+                            const rating = parseInt(this.getAttribute('data-rating'));
+                            updateStars(rating);
+                        });
+                    });
+                    
+                    // Add hover effect
+                    labels.forEach(label => {
+                        label.addEventListener('mouseenter', function() {
+                            const rating = parseInt(this.getAttribute('data-rating'));
+                            updateStars(rating);
+                        });
+                    });
+                    
+                    container.addEventListener('mouseleave', function() {
+                        const checkedRadio = container.querySelector('input[type="radio"]:checked');
+                        if (checkedRadio) {
+                            updateStars(parseInt(checkedRadio.value));
+                        }
+                    });
+                });
+                </script>
             <?php endif; ?>
         </div>
     </div>
