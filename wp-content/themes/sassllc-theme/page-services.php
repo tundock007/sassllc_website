@@ -150,7 +150,7 @@ get_header();
 </style>
 
 <!-- Hero Section -->
-<section class="hero" style="padding: 4rem 0;">
+<section class="hero" style="padding: 2rem 0;">
     <div class="container">
         <h1>Professional Accounting Services</h1>
         <p>Comprehensive financial solutions for individuals and businesses. From business formation and registration to accounting and complex tax strategies, we've got you covered.</p>
@@ -158,7 +158,7 @@ get_header();
 </section>
 
 <!-- Accounting Services -->
-<section id="accounting" style="padding: 4rem 0;">
+<section id="accounting" style="padding: 2.5rem 0;">
     <div class="container">
         <div class="section-header">
             <h2>📚 Accounting Services</h2>
@@ -166,7 +166,7 @@ get_header();
             <p>Accurate accounting is the foundation of every successful business. Our comprehensive accounting services ensure your financial records are always up-to-date, organized, and provide the insights you need for strategic decision-making.</p>
         </div>
         
-        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="services-grid" style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
             <div class="service-card">
                 <h4>📊 Account Management Services</h4>
                 <ul style="margin-top: 1rem;">
@@ -234,7 +234,7 @@ get_header();
             </div>
         </div>
         
-        <div class="service-split" style="margin-top: 3rem; align-items: center;">
+        <div class="service-split" style="margin-top: 2rem; align-items: center;">
             <div class="service-box">
                 <h4>Industries We Serve:</h4>
                 <ul style="list-style: none; margin-top: 1rem;">
@@ -265,7 +265,7 @@ get_header();
 </section>
 
 <!-- Tax Preparation Services -->
-<section id="tax-prep" style="padding: 4rem 0; background: var(--background-alt);">
+<section id="tax-prep" style="padding: 2.5rem 0; background: var(--background-alt);">
     <div class="container">
         <div class="section-header">
             <h2>📋 Tax Preparation Services</h2>
@@ -273,7 +273,7 @@ get_header();
             <p>Comprehensive tax preparation services for individuals and businesses. We ensure accuracy, maximize your tax savings, and keep you compliant with all federal and state requirements.</p>
         </div>
         
-        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="services-grid" style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
             <div class="service-card">
                 <h4>📄 Individual Tax Preparation</h4>
                 <ul style="margin-top: 1rem;">
@@ -361,7 +361,7 @@ get_header();
             </div>
         </div>
         
-        <div style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 12px;">
+        <div style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: 12px;">
             <h4 style="text-align: center; margin-bottom: 1.5rem;">Tax Credits & Deductions We Help You Claim:</h4>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
                 <span style="padding: 0.5rem;">✓ Earned Income Tax Credit (EITC)</span>
@@ -379,7 +379,7 @@ get_header();
 </section>
 
 <!-- Tax Planning -->
-<section id="tax-planning" style="padding: 4rem 0;">
+<section id="tax-planning" style="padding: 2.5rem 0;">
     <div class="container">
         <div class="service-split-reverse">
             <div class="service-box-dark">
@@ -410,7 +410,7 @@ get_header();
 </section>
 
 <!-- IRS Resolution Services -->
-<section id="irs-resolution" style="padding: 5rem 0; background: var(--background-alt);">
+<section id="irs-resolution" style="padding: 2.5rem 0; background: var(--background-alt);">
     <div class="container">
         <div class="section-header">
             <h2>🛡️ IRS Resolution Services</h2>
@@ -418,7 +418,7 @@ get_header();
             <p>Facing IRS tax problems? Our comprehensive resolution services help you resolve tax issues, stop collections, and protect your assets. We handle everything from notice responses to complex debt negotiations.</p>
         </div>
         
-        <div class="services-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="services-grid" style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
             <div class="service-card">
                 <h4>📧 IRS Notice Response</h4>
                 <ul style="margin-top: 1rem;">
@@ -540,7 +540,7 @@ get_header();
             </div>
         </div>
         
-        <div style="margin-top: 3rem; background: #FEF2F2; border: 2px solid #EF4444; padding: 2rem; border-radius: 12px; text-align: center;">
+        <div style="margin-top: 2rem; background: #FEF2F2; border: 2px solid #EF4444; padding: 1.5rem; border-radius: 12px; text-align: center;">
             <h4 style="color: #DC2626;">⚠️ Received an IRS Notice?</h4>
             <p style="color: #7F1D1D; margin-top: 0.5rem;">Time is critical when dealing with IRS problems. Don't wait – contact us immediately for urgent assistance.</p>
             <div style="margin-top: 1.5rem;">
@@ -553,7 +553,7 @@ get_header();
             </div>
         </div>
         
-        <div style="margin-top: 3rem; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 2rem; border-radius: 12px; color: white;">
+        <div style="margin-top: 2rem; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 1.5rem; border-radius: 12px; color: white;">
             <h4 style="color: white;">Why Choose Our IRS Resolution Services:</h4>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                 <div>
@@ -578,7 +578,7 @@ get_header();
 </section>
 
 <!-- Full Service Accounting -->
-<section style="padding: 4rem 0;">
+<section style="padding: 2.5rem 0;">
     <div class="container">
         <div class="section-header">
             <h2>💼 Full-Service Accounting</h2>
@@ -586,7 +586,7 @@ get_header();
             <p>For businesses that need comprehensive financial oversight, our full-service accounting solutions provide everything from daily transaction recording to CFO-level strategic guidance.</p>
         </div>
         
-        <div class="full-service-grid" style="margin-top: 2.5rem;">
+        <div class="full-service-grid" style="margin-top: 1.5rem;">
             <div class="full-service-item">
                 <div class="icon">📊</div>
                 <h4>All Accounting Services</h4>
