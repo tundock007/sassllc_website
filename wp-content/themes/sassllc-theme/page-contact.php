@@ -334,14 +334,13 @@ $testimonials = new WP_Query(array(
 
 if ($testimonials->have_posts()) :
 ?>
-<section style="padding: 5rem 0;">
+<section style="padding: 5rem 0; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);">
     <div class="container">
-        <div class="section-header">
-            <h2>What Our Clients Say</h2>
-            <p>Don't just take our word for it—hear from the people we've helped achieve financial peace of mind.</p>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 0.5rem;">Real Results From<br>Our Beloved <span style="border-bottom: 4px solid #FCD34D;">Clients</span></h2>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
             <?php while ($testimonials->have_posts()) : $testimonials->the_post(); 
                 $rating = get_post_meta(get_the_ID(), '_testimonial_rating', true);
                 $client_role = get_post_meta(get_the_ID(), '_testimonial_role', true);
@@ -351,21 +350,16 @@ if ($testimonials->have_posts()) :
                 }
                 $stars = str_repeat('★', intval($rating));
             ?>
-            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--primary-color);">
-                <div style="color: #F59E0B; margin-bottom: 1rem; font-size: 1.25rem;"><?php echo esc_html($stars); ?></div>
-                <p style="color: var(--text-color); margin-bottom: 1.5rem; line-height: 1.6;">
-                    "<?php echo esc_html(get_the_content()); ?>"
+            <div style="background: rgba(30, 41, 59, 0.5); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s;">
+                <div style="color: #FCD34D; margin-bottom: 1rem; font-size: 1.25rem;"><?php echo esc_html($stars); ?></div>
+                <p style="color: #E2E8F0; margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">
+                    <?php echo esc_html(get_the_content()); ?>
                 </p>
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">
-                        <?php echo esc_html($client_initials); ?>
-                    </div>
-                    <div>
-                        <strong style="display: block; color: var(--primary-color);"><?php the_title(); ?></strong>
-                        <?php if ($client_role) : ?>
-                        <span style="color: var(--text-light); font-size: 0.875rem;"><?php echo esc_html($client_role); ?></span>
-                        <?php endif; ?>
-                    </div>
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem;">
+                    <strong style="display: block; color: white; font-size: 1rem; margin-bottom: 0.25rem;"><?php the_title(); ?></strong>
+                    <?php if ($client_role) : ?>
+                    <span style="color: #94A3B8; font-size: 0.875rem;"><?php echo esc_html($client_role); ?></span>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php endwhile; wp_reset_postdata(); ?>
