@@ -250,7 +250,7 @@ add_action('admin_init', 'sassllc_cleanup_missing_plugins');
 // Enqueue Scripts and Styles
 function sassllc_enqueue_scripts() {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null);
-    wp_enqueue_style('sassllc-style', get_stylesheet_uri(), array(), '1.0');
+    wp_enqueue_style('sassllc-style', get_stylesheet_uri(), array(), '1.1.' . time());
 }
 add_action('wp_enqueue_scripts', 'sassllc_enqueue_scripts');
 
