@@ -126,7 +126,7 @@ get_header();
 <!-- CTA Section -->
 <section style="padding: 4rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
     <div class="container" style="text-align: center;">
-        <h2 style="color: white; margin-bottom: 1rem;">Need Professional Help?</h2>
+        <h2 style="color: white; margin-bottom: 1rem;">Need <span style="color: #FCD34D;">Professional</span> Help?</h2>
         <p style="color: #E2E8F0; max-width: 600px; margin: 0 auto 2rem;">
             Get expert accounting, tax preparation, and IRS resolution services tailored to your needs.
         </p>

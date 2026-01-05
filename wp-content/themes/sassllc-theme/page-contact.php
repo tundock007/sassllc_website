@@ -321,59 +321,12 @@ get_header();
     </div>
 </section>
 
-<!-- Client Testimonials Section -->
-<?php
-// Get approved testimonials
-$testimonials = new WP_Query(array(
-    'post_type' => 'testimonial',
-    'post_status' => 'publish',
-    'posts_per_page' => 6,
-    'orderby' => 'date',
-    'order' => 'DESC'
-));
-
-if ($testimonials->have_posts()) :
-?>
-<section style="padding: 5rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
-    <div class="container">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 0.5rem;">Real Results From<br>Our Beloved <span style="border-bottom: 4px solid #FCD34D;">Clients</span></h2>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-            <?php while ($testimonials->have_posts()) : $testimonials->the_post(); 
-                $rating = get_post_meta(get_the_ID(), '_testimonial_rating', true);
-                $client_role = get_post_meta(get_the_ID(), '_testimonial_role', true);
-                $client_initials = get_post_meta(get_the_ID(), '_testimonial_initials', true);
-                if (empty($client_initials)) {
-                    $client_initials = substr(get_the_title(), 0, 1);
-                }
-                $stars = str_repeat('★', intval($rating));
-            ?>
-            <div style="background: rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s;">
-                <div style="color: #FCD34D; margin-bottom: 1rem; font-size: 1.25rem;"><?php echo esc_html($stars); ?></div>
-                <p style="color: #E2E8F0; margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">
-                    <?php echo esc_html(get_the_content()); ?>
-                </p>
-                <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.5rem;">
-                    <strong style="display: block; color: white; font-size: 1rem; margin-bottom: 0.25rem;"><?php the_title(); ?></strong>
-                    <?php if ($client_role) : ?>
-                    <span style="color: #94A3B8; font-size: 0.875rem;"><?php echo esc_html($client_role); ?></span>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <?php endwhile; wp_reset_postdata(); ?>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
-
 <!-- Submit Review Section -->
 <section style="padding: 4rem 0; background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);">
     <div class="container">
         <div style="max-width: 650px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
             <div style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Share Your Experience</h2>
+                <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Share Your <span style="color: #FCD34D;">Experience</span></h2>
                 <p style="color: #6B7280; font-size: 0.9rem; margin: 0;">Help others make informed decisions about our services</p>
             </div>
             

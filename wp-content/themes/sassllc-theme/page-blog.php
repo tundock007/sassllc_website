@@ -9,7 +9,7 @@ get_header();
 <!-- Hero Section -->
 <section class="hero" style="padding: 4rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
     <div class="container">
-        <h1 style="color: white;">Insights & Updates</h1>
+        <h1 style="color: white;"><span style="color: #FCD34D;">Insights</span> & Updates</h1>
         <p style="color: #E2E8F0;">Expert financial advice, tax tips, and industry insights to help your business thrive.</p>
     </div>
 </section>
@@ -110,7 +110,7 @@ get_header();
     <div class="container">
         <div style="max-width: 700px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
             <div style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Submit a Guest Post</h2>
+                <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Submit a <span style="color: #FCD34D;">Guest Post</span></h2>
                 <p style="color: #6B7280; font-size: 0.9rem; margin: 0;">Share your expertise and insights with our community</p>
             </div>
             
@@ -283,7 +283,7 @@ get_header();
 <!-- Newsletter Signup -->
 <section style="padding: 4rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
     <div class="container" style="text-align: center;">
-        <h2 style="color: white; margin-bottom: 1rem;">Stay Informed</h2>
+        <h2 style="color: white; margin-bottom: 1rem;">Stay <span style="color: #FCD34D;">Informed</span></h2>
         <p style="color: #E2E8F0; max-width: 600px; margin: 0 auto 2rem;">
             Get the latest financial tips, tax updates, and business insights delivered to your inbox.
         </p>

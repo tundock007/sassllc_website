@@ -759,6 +759,34 @@ section {
         font-size: 1rem;
     }
     
+    /* Mobile Dropdown */
+    .has-dropdown .dropdown-menu {
+        position: static;
+        display: none !important;
+        box-shadow: none;
+        background: var(--background-alt);
+        margin-top: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+    
+    .has-dropdown.dropdown-open .dropdown-menu {
+        display: flex !important;
+    }
+    
+    .dropdown-menu li {
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .dropdown-menu li:last-child {
+        border-bottom: none;
+    }
+    
+    .dropdown-menu a {
+        padding: 0.875rem 1rem 0.875rem 2rem;
+        font-size: 0.95rem;
+    }
+    
     .header-cta {
         order: 3;
     }
