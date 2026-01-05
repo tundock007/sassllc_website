@@ -556,7 +556,7 @@ if ($testimonials->have_posts()) :
             <h2 style="color: white; font-size: 2.5rem; margin-bottom: 0.5rem;"><span style="color: #FCD34D;">Real Results</span> From<br>Our Beloved <span style="border-bottom: 4px solid #FCD34D;">Clients</span></h2>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
             <?php while ($testimonials->have_posts()) : $testimonials->the_post(); 
                 $rating = get_post_meta(get_the_ID(), '_testimonial_rating', true);
                 $client_role = get_post_meta(get_the_ID(), '_testimonial_role', true);
@@ -566,15 +566,15 @@ if ($testimonials->have_posts()) :
                 }
                 $stars = str_repeat('★', intval($rating));
             ?>
-            <div style="background: rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s;">
-                <div style="color: #FCD34D; margin-bottom: 1rem; font-size: 1.25rem;"><?php echo esc_html($stars); ?></div>
-                <p style="color: #E2E8F0; margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">
+            <div style="background: rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s;">
+                <div style="color: #FCD34D; margin-bottom: 0.75rem; font-size: 1rem;"><?php echo esc_html($stars); ?></div>
+                <p style="color: #E2E8F0; margin-bottom: 1.25rem; line-height: 1.5; font-size: 0.875rem;">
                     <?php echo esc_html(get_the_content()); ?>
                 </p>
-                <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.5rem;">
-                    <strong style="display: block; color: white; font-size: 1rem; margin-bottom: 0.25rem;"><?php the_title(); ?></strong>
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1rem;">
+                    <strong style="display: block; color: white; font-size: 0.9rem; margin-bottom: 0.25rem;"><?php the_title(); ?></strong>
                     <?php if ($client_role) : ?>
-                    <span style="color: #94A3B8; font-size: 0.875rem;"><?php echo esc_html($client_role); ?></span>
+                    <span style="color: #94A3B8; font-size: 0.8rem;"><?php echo esc_html($client_role); ?></span>
                     <?php endif; ?>
                 </div>
             </div>
