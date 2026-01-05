@@ -57,22 +57,23 @@ document.addEventListener('DOMContentLoaded', function() {
         toggle.classList.toggle('active');
     });
     
-    // Close menu when clicking a link
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            toggle.classList.remove('active');
-        });
-    });
-    
     // Dropdown functionality
     const dropdownTriggers = document.querySelectorAll('.has-dropdown > a');
     dropdownTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
+                e.stopPropagation();
                 this.parentElement.classList.toggle('dropdown-open');
             }
+        });
+    });
+    
+    // Close menu when clicking non-dropdown links
+    document.querySelectorAll('.main-nav a:not(.has-dropdown > a)').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
         });
     });
 });

@@ -10,7 +10,7 @@ get_header();
 <style>
 /* Modern Hero Enhancements */
 .hero-modern {
-    padding: 10rem 0 8rem;
+    padding: 6rem 0 4rem;
     text-align: center;
     background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
     position: relative;
@@ -101,9 +101,9 @@ get_header();
 
 /* Stats Section */
 .stats-section {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: white;
-    margin-top: -80px;
+    margin-top: -60px;
     position: relative;
     z-index: 10;
 }
@@ -115,7 +115,7 @@ get_header();
     max-width: 800px;
     margin: 0 auto;
     background: white;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 25px 80px rgba(0,0,0,0.1);
 }
@@ -140,7 +140,7 @@ get_header();
 
 /* Modern Features */
 .features-modern {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: #F8FAFC;
 }
 
@@ -190,7 +190,7 @@ get_header();
 
 /* Services Modern */
 .services-modern {
-    padding: 7rem 0;
+    padding: 4rem 0;
     background: white;
 }
 
@@ -224,7 +224,7 @@ get_header();
 
 /* CTA Modern */
 .cta-modern {
-    padding: 8rem 0;
+    padding: 4rem 0;
     background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
     position: relative;
     overflow: hidden;
@@ -416,7 +416,7 @@ get_header();
 <!-- Why Choose Us Section -->
 <section class="features-modern">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
             <h2>Why Clients Trust Us</h2>
             <p>Experience the difference that professional, personalized accounting services can make.</p>
         </div>
@@ -452,7 +452,7 @@ get_header();
 <!-- Services Section -->
 <section class="services-modern">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
             <h2>Our Professional Services</h2>
             <p>Comprehensive financial solutions for individuals and businesses.</p>
         </div>
@@ -503,16 +503,16 @@ get_header();
             </div>
         </div>
         
-        <div style="text-align: center; margin-top: 4rem;">
+        <div style="text-align: center; margin-top: 2.5rem;">
             <a href="<?php echo home_url('/services'); ?>" class="btn btn-accent">View All Services →</a>
         </div>
     </div>
 </section>
 
 <!-- Credentials Section -->
-<section class="credentials" style="padding: 5rem 0;">
+<section class="credentials" style="padding: 3rem 0;">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="margin-bottom: 2rem;">
             <h2>Our Credentials</h2>
         </div>
         
@@ -550,9 +550,9 @@ $testimonials = new WP_Query(array(
 
 if ($testimonials->have_posts()) :
 ?>
-<section style="padding: 5rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
+<section style="padding: 4rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
     <div class="container">
-        <div style="text-align: center; margin-bottom: 3rem;">
+        <div style="text-align: center; margin-bottom: 2rem;">
             <h2 style="color: white; font-size: 2.5rem; margin-bottom: 0.5rem;"><span style="color: #FCD34D;">Real Results</span> From<br>Our Beloved <span style="border-bottom: 4px solid #FCD34D;">Clients</span></h2>
         </div>
         
@@ -596,7 +596,7 @@ if ($testimonials->have_posts()) :
 </section>
 
 <!-- Contact Bar -->
-<section style="background: #F8FAFC; padding: 4rem 0;">
+<section style="background: #F8FAFC; padding: 3rem 0;">
     <div class="container" style="text-align: center;">
         <p style="font-size: 1.1rem; margin-bottom: 1rem; color: #64748B;">Have questions? We're here to help.</p>
         <p style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">
