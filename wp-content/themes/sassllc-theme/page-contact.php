@@ -52,8 +52,8 @@ get_header();
                         <strong>Office Hours</strong><br>
                         Monday – Friday: 9:00 AM – 5:00 PM<br>
                         Saturday: By Appointment<br>
-                        Sunday: Closed<br>
-                        <em style="font-size: 0.875rem; color: var(--text-light);">Extended hours available during tax season (January – April)</em>
+                        Sunday: By Appointment<br>
+                        <em style="font-size: 0.875rem; color: var(--text-light);">We are open for extended hours during the 2026 tax season (January – April)</em>
                     </div>
                 </div>
                 
@@ -317,6 +317,229 @@ get_header();
                 </script>
                 
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Client Testimonials Section -->
+<?php
+// Get approved testimonials
+$testimonials = new WP_Query(array(
+    'post_type' => 'testimonial',
+    'post_status' => 'publish',
+    'posts_per_page' => 6,
+    'orderby' => 'date',
+    'order' => 'DESC'
+));
+
+if ($testimonials->have_posts()) :
+?>
+<section style="padding: 5rem 0;">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Our Clients Say</h2>
+            <p>Don't just take our word for it—hear from the people we've helped achieve financial peace of mind.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <?php while ($testimonials->have_posts()) : $testimonials->the_post(); 
+                $rating = get_post_meta(get_the_ID(), '_testimonial_rating', true);
+                $client_role = get_post_meta(get_the_ID(), '_testimonial_role', true);
+                $client_initials = get_post_meta(get_the_ID(), '_testimonial_initials', true);
+                if (empty($client_initials)) {
+                    $client_initials = substr(get_the_title(), 0, 1);
+                }
+                $stars = str_repeat('★', intval($rating));
+            ?>
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--primary-color);">
+                <div style="color: #F59E0B; margin-bottom: 1rem; font-size: 1.25rem;"><?php echo esc_html($stars); ?></div>
+                <p style="color: var(--text-color); margin-bottom: 1.5rem; line-height: 1.6;">
+                    "<?php echo esc_html(get_the_content()); ?>"
+                </p>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.25rem;">
+                        <?php echo esc_html($client_initials); ?>
+                    </div>
+                    <div>
+                        <strong style="display: block; color: var(--primary-color);"><?php the_title(); ?></strong>
+                        <?php if ($client_role) : ?>
+                        <span style="color: var(--text-light); font-size: 0.875rem;"><?php echo esc_html($client_role); ?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endwhile; wp_reset_postdata(); ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
+<!-- Submit Review Section -->
+<section style="padding: 5rem 0; background: var(--background-alt);">
+    <div class="container">
+        <div style="max-width: 700px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Share Your Experience</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">
+                We value your feedback! Share your experience with our services and help others make informed decisions.
+            </p>
+            
+            <?php
+            $review_submitted = false;
+            $review_errors = array();
+            
+            if (isset($_GET['review']) && $_GET['review'] === 'submitted') {
+                $review_submitted = true;
+            }
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
+                // Verify nonce
+                if (!isset($_POST['review_nonce']) || !wp_verify_nonce($_POST['review_nonce'], 'submit_review_action')) {
+                    $review_errors[] = 'Security verification failed. Please try again.';
+                } else {
+                    // Sanitize inputs
+                    $review_name = sanitize_text_field($_POST['review_name'] ?? '');
+                    $review_email = sanitize_email($_POST['review_email'] ?? '');
+                    $review_role = sanitize_text_field($_POST['review_role'] ?? '');
+                    $review_rating = intval($_POST['review_rating'] ?? 5);
+                    $review_content = sanitize_textarea_field($_POST['review_content'] ?? '');
+                    $honeypot = $_POST['website_url_review'] ?? '';
+                    
+                    // Validate
+                    if (empty($review_name)) {
+                        $review_errors[] = 'Name is required.';
+                    }
+                    if (empty($review_email) || !is_email($review_email)) {
+                        $review_errors[] = 'Valid email is required.';
+                    }
+                    if (empty($review_content)) {
+                        $review_errors[] = 'Review is required.';
+                    }
+                    if ($review_rating < 1 || $review_rating > 5) {
+                        $review_errors[] = 'Rating must be between 1 and 5.';
+                    }
+                    
+                    // Anti-spam: Check honeypot
+                    if (!empty($honeypot)) {
+                        wp_redirect(add_query_arg('review', 'submitted', get_permalink()));
+                        exit;
+                    }
+                    
+                    // If no errors, create testimonial
+                    if (empty($review_errors)) {
+                        // Get first letter for initials
+                        $initials = substr($review_name, 0, 1);
+                        
+                        $testimonial_id = wp_insert_post(array(
+                            'post_title' => $review_name,
+                            'post_content' => $review_content,
+                            'post_type' => 'testimonial',
+                            'post_status' => 'pending', // Requires admin approval
+                            'meta_input' => array(
+                                '_testimonial_rating' => $review_rating,
+                                '_testimonial_role' => $review_role,
+                                '_testimonial_email' => $review_email,
+                                '_testimonial_initials' => strtoupper($initials)
+                            )
+                        ));
+                        
+                        if ($testimonial_id) {
+                            wp_redirect(add_query_arg('review', 'submitted', get_permalink()));
+                            exit;
+                        } else {
+                            $review_errors[] = 'Failed to submit review. Please try again.';
+                        }
+                    }
+                }
+            }
+            ?>
+            
+            <?php if ($review_submitted) : ?>
+                <div style="background: #D1FAE5; color: #065F46; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #10B981; text-align: center;">
+                    <strong>Thank you for your review!</strong><br>
+                    Your testimonial has been submitted and will appear on our site after approval.
+                </div>
+            <?php else : ?>
+                <?php if (!empty($review_errors)) : ?>
+                    <div style="background: #FEE2E2; color: #991B1B; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #DC2626;">
+                        <ul style="margin: 0; padding-left: 1.5rem;">
+                            <?php foreach ($review_errors as $error) : ?>
+                                <li><?php echo esc_html($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+                
+                <form method="POST" action="">
+                    <?php wp_nonce_field('submit_review_action', 'review_nonce'); ?>
+                    
+                    <!-- Honeypot field -->
+                    <input type="text" name="website_url_review" style="display: none;" tabindex="-1" autocomplete="off">
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Name *</label>
+                        <input type="text" name="review_name" required 
+                               style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem;"
+                               value="<?php echo isset($_POST['review_name']) ? esc_attr($_POST['review_name']) : ''; ?>">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Email * <span style="font-weight: 400; font-size: 0.875rem; color: var(--text-light);">(Will not be displayed publicly)</span></label>
+                        <input type="email" name="review_email" required 
+                               style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem;"
+                               value="<?php echo isset($_POST['review_email']) ? esc_attr($_POST['review_email']) : ''; ?>">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Role/Business Type <span style="font-weight: 400; font-size: 0.875rem; color: var(--text-light);">(Optional)</span></label>
+                        <input type="text" name="review_role" 
+                               placeholder="e.g., Small Business Owner, Entrepreneur"
+                               style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem;"
+                               value="<?php echo isset($_POST['review_role']) ? esc_attr($_POST['review_role']) : ''; ?>">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Rating *</label>
+                        <div style="display: flex; gap: 0.5rem; font-size: 2rem;">
+                            <?php for ($i = 5; $i >= 1; $i--) : ?>
+                                <label style="cursor: pointer;">
+                                    <input type="radio" name="review_rating" value="<?php echo $i; ?>" 
+                                           <?php echo (isset($_POST['review_rating']) && $_POST['review_rating'] == $i) || (!isset($_POST['review_rating']) && $i == 5) ? 'checked' : ''; ?>
+                                           style="display: none;">
+                                    <span class="star-rating" style="color: #D1D5DB;">★</span>
+                                </label>
+                            <?php endfor; ?>
+                        </div>
+                        <small style="color: var(--text-light);">Click on a star to rate (5 stars = excellent)</small>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Your Review *</label>
+                        <textarea name="review_content" required rows="5"
+                                  style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 1rem; resize: vertical;"
+                                  placeholder="Share your experience with our services..."><?php echo isset($_POST['review_content']) ? esc_textarea($_POST['review_content']) : ''; ?></textarea>
+                    </div>
+                    
+                    <button type="submit" name="submit_review" class="btn" style="width: 100%;">
+                        Submit Review
+                    </button>
+                    
+                    <p style="text-align: center; color: var(--text-light); font-size: 0.875rem; margin-top: 1rem;">
+                        Your review will be reviewed before being published on our site.
+                    </p>
+                </form>
+                
+                <style>
+                    input[type="radio"]:checked + .star-rating {
+                        color: #F59E0B !important;
+                    }
+                    input[type="radio"]:checked ~ label .star-rating {
+                        color: #F59E0B !important;
+                    }
+                    label:has(input[type="radio"]:checked) ~ label .star-rating {
+                        color: #D1D5DB !important;
+                    }
+                </style>
+            <?php endif; ?>
         </div>
     </div>
 </section>

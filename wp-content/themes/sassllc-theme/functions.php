@@ -64,6 +64,172 @@ function sassllc_register_contact_submissions() {
 }
 add_action('init', 'sassllc_register_contact_submissions');
 
+// Register custom post type for testimonials
+function sassllc_register_testimonials() {
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => 'Testimonials',
+            'singular_name' => 'Testimonial',
+            'menu_name' => 'Testimonials',
+            'all_items' => 'All Testimonials',
+            'add_new' => 'Add New',
+            'add_new_item' => 'Add New Testimonial',
+            'edit_item' => 'Edit Testimonial',
+            'view_item' => 'View Testimonial',
+            'search_items' => 'Search Testimonials',
+            'not_found' => 'No testimonials found',
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-star-filled',
+        'capability_type' => 'post',
+        'supports' => array('title', 'editor'),
+        'menu_position' => 26,
+        'has_archive' => false,
+    ));
+}
+add_action('init', 'sassllc_register_testimonials');
+
+// Add meta boxes for testimonial fields
+function sassllc_testimonial_meta_boxes() {
+    add_meta_box(
+        'testimonial_details',
+        'Testimonial Details',
+        'sassllc_testimonial_meta_box_callback',
+        'testimonial',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'sassllc_testimonial_meta_boxes');
+
+// Meta box callback
+function sassllc_testimonial_meta_box_callback($post) {
+    wp_nonce_field('sassllc_testimonial_meta_box', 'sassllc_testimonial_meta_box_nonce');
+    
+    $rating = get_post_meta($post->ID, '_testimonial_rating', true);
+    $role = get_post_meta($post->ID, '_testimonial_role', true);
+    $email = get_post_meta($post->ID, '_testimonial_email', true);
+    $initials = get_post_meta($post->ID, '_testimonial_initials', true);
+    ?>
+    <table class="form-table">
+        <tr>
+            <th><label for="testimonial_rating">Rating</label></th>
+            <td>
+                <select name="testimonial_rating" id="testimonial_rating">
+                    <?php for ($i = 5; $i >= 1; $i--) : ?>
+                        <option value="<?php echo $i; ?>" <?php selected($rating, $i); ?>>
+                            <?php echo str_repeat('★', $i); ?> (<?php echo $i; ?> stars)
+                        </option>
+                    <?php endfor; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="testimonial_role">Client Role/Business Type</label></th>
+            <td>
+                <input type="text" name="testimonial_role" id="testimonial_role" 
+                       value="<?php echo esc_attr($role); ?>" class="regular-text">
+                <p class="description">e.g., Small Business Owner, Entrepreneur</p>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="testimonial_email">Client Email</label></th>
+            <td>
+                <input type="email" name="testimonial_email" id="testimonial_email" 
+                       value="<?php echo esc_attr($email); ?>" class="regular-text" readonly>
+                <p class="description">For internal reference only (not displayed publicly)</p>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="testimonial_initials">Display Initials</label></th>
+            <td>
+                <input type="text" name="testimonial_initials" id="testimonial_initials" 
+                       value="<?php echo esc_attr($initials); ?>" maxlength="2" style="width: 60px; text-transform: uppercase;">
+                <p class="description">1-2 letter initial to display in avatar circle</p>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+// Save meta box data
+function sassllc_save_testimonial_meta_box($post_id) {
+    if (!isset($_POST['sassllc_testimonial_meta_box_nonce'])) {
+        return;
+    }
+    if (!wp_verify_nonce($_POST['sassllc_testimonial_meta_box_nonce'], 'sassllc_testimonial_meta_box')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    if (isset($_POST['testimonial_rating'])) {
+        update_post_meta($post_id, '_testimonial_rating', intval($_POST['testimonial_rating']));
+    }
+    if (isset($_POST['testimonial_role'])) {
+        update_post_meta($post_id, '_testimonial_role', sanitize_text_field($_POST['testimonial_role']));
+    }
+    if (isset($_POST['testimonial_initials'])) {
+        update_post_meta($post_id, '_testimonial_initials', strtoupper(sanitize_text_field($_POST['testimonial_initials'])));
+    }
+}
+add_action('save_post_testimonial', 'sassllc_save_testimonial_meta_box');
+
+// Add custom columns to testimonials list
+function sassllc_testimonial_columns($columns) {
+    $new_columns = array(
+        'cb' => $columns['cb'],
+        'title' => 'Client Name',
+        'testimonial_rating' => 'Rating',
+        'testimonial_role' => 'Role',
+        'testimonial_content' => 'Review',
+        'date' => 'Date Submitted'
+    );
+    return $new_columns;
+}
+add_filter('manage_testimonial_posts_columns', 'sassllc_testimonial_columns');
+
+// Populate custom columns
+function sassllc_testimonial_column_content($column, $post_id) {
+    switch ($column) {
+        case 'testimonial_rating':
+            $rating = get_post_meta($post_id, '_testimonial_rating', true);
+            echo str_repeat('★', intval($rating));
+            break;
+        case 'testimonial_role':
+            $role = get_post_meta($post_id, '_testimonial_role', true);
+            echo $role ? esc_html($role) : '—';
+            break;
+        case 'testimonial_content':
+            $content = get_post_field('post_content', $post_id);
+            echo wp_trim_words($content, 15);
+            break;
+    }
+}
+add_action('manage_testimonial_posts_custom_column', 'sassllc_testimonial_column_content', 10, 2);
+
+// Add admin notice for pending testimonials
+function sassllc_testimonial_admin_notice() {
+    $pending_count = wp_count_posts('testimonial')->pending;
+    if ($pending_count > 0) {
+        ?>
+        <div class="notice notice-info">
+            <p>
+                <strong><?php echo $pending_count; ?> new testimonial<?php echo $pending_count > 1 ? 's' : ''; ?> pending review.</strong>
+                <a href="<?php echo admin_url('edit.php?post_type=testimonial&post_status=pending'); ?>">Review now</a>
+            </p>
+        </div>
+        <?php
+    }
+}
+add_action('admin_notices', 'sassllc_testimonial_admin_notice');
+
 // Clean up Contact Form 7 if it's in the database but files don't exist
 function sassllc_cleanup_missing_plugins() {
     $active_plugins = get_option('active_plugins');
