@@ -334,7 +334,7 @@ $testimonials = new WP_Query(array(
 
 if ($testimonials->have_posts()) :
 ?>
-<section style="padding: 5rem 0; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);">
+<section style="padding: 5rem 0; background: linear-gradient(135deg, #1a2942 0%, #2d4a6a 100%);">
     <div class="container">
         <div style="text-align: center; margin-bottom: 3rem;">
             <h2 style="color: white; font-size: 2.5rem; margin-bottom: 0.5rem;">Real Results From<br>Our Beloved <span style="border-bottom: 4px solid #FCD34D;">Clients</span></h2>
@@ -350,12 +350,12 @@ if ($testimonials->have_posts()) :
                 }
                 $stars = str_repeat('★', intval($rating));
             ?>
-            <div style="background: rgba(30, 41, 59, 0.5); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s;">
+            <div style="background: rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s;">
                 <div style="color: #FCD34D; margin-bottom: 1rem; font-size: 1.25rem;"><?php echo esc_html($stars); ?></div>
                 <p style="color: #E2E8F0; margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">
                     <?php echo esc_html(get_the_content()); ?>
                 </p>
-                <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem;">
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.5rem;">
                     <strong style="display: block; color: white; font-size: 1rem; margin-bottom: 0.25rem;"><?php the_title(); ?></strong>
                     <?php if ($client_role) : ?>
                     <span style="color: #94A3B8; font-size: 0.875rem;"><?php echo esc_html($client_role); ?></span>

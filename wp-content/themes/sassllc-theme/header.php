@@ -34,6 +34,7 @@
                 </li>
                 <li><a href="<?php echo home_url('/about'); ?>" <?php if(is_page('about')) echo 'class="active"'; ?>>About Us</a></li>
                 <li><a href="<?php echo home_url('/contact'); ?>" <?php if(is_page('contact')) echo 'class="active"'; ?>>Contact</a></li>
+                <li><a href="<?php echo home_url('/blog'); ?>" <?php if(is_page('blog') || is_single() || is_category() || is_archive()) echo 'class="active"'; ?>>Blog</a></li>
             </ul>
         </nav>
         
