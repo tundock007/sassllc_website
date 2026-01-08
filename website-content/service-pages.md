@@ -37,21 +37,10 @@ Starting a business requires navigating complex legal requirements, filing deadl
 - Workers' compensation registration
 - Multi-state registration services
 
-**Licensing & Permit Services**
-- General business license applications
-- Home-based business permits
-- Professional license assistance
-- Zoning and occupancy permits
-- Industry-specific permits
-- Health and safety permits
-
 **Compliance & Annual Filings**
 - Annual report filing services
 - Registered agent services
 - Operating agreement creation
-- Corporate bylaws drafting
-- Meeting minutes templates
-- Compliance calendar management
 
 **DBA / Trade Name Services**
 - DBA (Doing Business As) registration

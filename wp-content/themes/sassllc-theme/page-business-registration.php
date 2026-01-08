@@ -76,24 +76,10 @@ get_header();
             </div>
             
             <div class="service-card">
-                <h4>Licensing & Permits</h4>
-                <ul>
-                    <li>General business licenses</li>
-                    <li>Home-based business permits</li>
-                    <li>Zoning permits</li>
-                    <li>Occupancy permits</li>
-                    <li>Industry-specific licenses</li>
-                </ul>
-            </div>
-            
-            <div class="service-card">
                 <h4>Compliance & Annual Filings</h4>
                 <ul>
                     <li>Annual report filing</li>
                     <li>Operating agreement creation</li>
-                    <li>Corporate bylaws drafting</li>
-                    <li>Meeting minutes preparation</li>
-                    <li>Compliance calendar management</li>
                 </ul>
             </div>
             

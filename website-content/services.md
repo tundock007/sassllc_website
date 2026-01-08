@@ -35,15 +35,9 @@ Starting a business involves more than just having a great idea. Our comprehensi
 - **Unemployment Insurance Registration** – State unemployment tax setup
 - **Workers' Compensation Registration** – Required insurance registration
 
-### 3. Licensing & Permit Services
-- **General Business License Applications** – Local and state business licenses
-- **Home-Based Business Permits** – Zoning approvals for home-based operations
-- **Zoning and Occupancy Permits** – Certificate of occupancy applications
-
-### 4. Compliance & Annual Filings
+### 3. Compliance & Annual Filings
 - **Annual Report Filing** – State-mandated annual reports and renewals
 - **Operating Agreement Creation** – Comprehensive LLC operating agreements
-- **Corporate Bylaws Drafting** – Complete corporate governance documents
 
 ### 5. DBA / Trade Name Services
 - **DBA Registration** – "Doing Business As" name registration
