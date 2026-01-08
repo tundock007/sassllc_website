@@ -64,6 +64,37 @@ function sassllc_register_contact_submissions() {
 }
 add_action('init', 'sassllc_register_contact_submissions');
 
+// Create default blog categories
+function sassllc_create_blog_categories() {
+    // Check if categories already exist
+    if (get_option('sassllc_categories_created')) {
+        return;
+    }
+    
+    $categories = array(
+        'Tax Planning' => 'Tips and strategies for effective tax planning',
+        'Bookkeeping' => 'Best practices and guides for bookkeeping',
+        'IRS & Compliance' => 'Updates on IRS regulations and compliance requirements',
+        'Business Formation' => 'Guides on starting and structuring your business',
+        'Financial Tips' => 'General financial advice and money management tips',
+        'Tax Updates' => 'Latest tax law changes and updates',
+        'Small Business' => 'Resources specifically for small business owners',
+    );
+    
+    foreach ($categories as $name => $description) {
+        if (!term_exists($name, 'category')) {
+            wp_insert_term($name, 'category', array(
+                'description' => $description,
+                'slug' => sanitize_title($name)
+            ));
+        }
+    }
+    
+    // Mark as created
+    update_option('sassllc_categories_created', true);
+}
+add_action('after_switch_theme', 'sassllc_create_blog_categories');
+
 // Register custom post type for testimonials
 function sassllc_register_testimonials() {
     register_post_type('testimonial', array(
